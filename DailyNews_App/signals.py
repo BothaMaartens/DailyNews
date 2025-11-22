@@ -4,7 +4,21 @@
 
 # **************************** signals.py ******************************
 
-# This file contains the signals to share articles after it is published
+"""
+signals.py
+==========
+
+This module contains Django signal receivers that handle automated background
+tasks.
+
+Key features handled here:
+    1. **System Setup:** Automatically creating User Groups and assigning
+        Permissions after migration.
+    2. **User Onboarding:** Assigning users to groups and generating API tokens
+        upon registration.
+    3. **Content Distribution:** Sending emails to subscribers and posting to
+        social media (X/Twitter) when an article is published.
+"""
 
 from django.db.models.signals import post_save, post_migrate
 from django.dispatch import receiver
@@ -25,9 +39,20 @@ User = get_user_model()
 @receiver(post_migrate)
 def create_initial_groups(sender, apps, **kwargs):
     """
-    Creates Editor, Journalist, and Reader groups and assigns basic permissions
-    after migrations are run. This runs only when the signal sender is this
-    app.
+    Signal receiver that initializes the database with required User Groups
+    and Permissions.
+
+    **Trigger:** Runs automatically after the ``migrate`` command is executed.
+
+    **Actions:**
+        * Ensures required 'ActualToday' and 'SportToday' publishers exist.
+        * Creates 'Editor', 'Journalist', and 'Reader' groups.
+        * Assigns model-level permissions (add, change, delete, view) to
+            these groups.
+
+    :param sender: The AppConfig that sent the signal.
+    :param apps: A registry of the installed applications.
+    :param kwargs: Additional keyword arguments.
     """
     # Ensure this runs only for the app whose config sent the signal
     if sender.name != 'DailyNews_App':
@@ -99,8 +124,22 @@ def create_initial_groups(sender, apps, **kwargs):
 def handle_article_publication_and_sharing(sender, instance, created,
                                            **kwargs):
     """
-    Triggers sharing actions only when an existing article's status
-    is changed to PUBLISHED.
+    Handles notifications and social media sharing when an Article is
+    published.
+
+    **Trigger:** Runs after an ``Article`` instance is saved.
+
+    **Logic:**
+        1. Checks if the article status is 'PUBLISHED'.
+        2. **Email Notification:** Aggregates emails of subscribers
+            (to the Author or Publisher), removes duplicates, and sends a
+            mass email.
+        3. **Social Media:** Constructs a payload and sends a POST request to
+            the X (Twitter) API if credentials are configured.
+
+    :param sender: The model class (Article).
+    :param instance: The actual Article instance being saved.
+    :param created: Boolean indicating if this is a new record.
     """
     # Only proceed if the article is PUBLISHED
     if not created and instance.status == 'PUBLISHED':
@@ -128,7 +167,7 @@ def handle_article_publication_and_sharing(sender, instance, created,
             subject = (f"NEW ARTICLE: {instance.title} by "
                        f"{instance.author.get_full_name() or
                           instance.author.username}"
-            )
+                        )
 
             message = (
                 f"Dear Subscriber,\n\n"
@@ -203,8 +242,14 @@ def handle_article_publication_and_sharing(sender, instance, created,
 @receiver(post_save, sender=User)
 def assign_user_to_group(sender, instance, created, **kwargs):
     """
-    Assigns the user to the correct role-based group and creates an API token
-    upon creation.
+    Automatically assigns a new User to a Django Group based on their
+    selected role.
+
+    **Trigger:** Runs after a ``User`` instance is created.
+
+    :param sender: The model class (CustomUser).
+    :param instance: The user instance.
+    :param created: Boolean, True if this is a new user.
     """
     if created:
         role_name_db = instance.role  # e.g., 'EDITOR'
@@ -223,7 +268,15 @@ def assign_user_to_group(sender, instance, created, **kwargs):
 
 @receiver(post_save, sender=User)
 def create_auth_token(sender, instance=None, created=False, **kwargs):
-    """Creates a REST Framework Token for every new user upon creation."""
+    """
+    Generates a Django REST Framework (DRF) API Token for every new user.
+
+    **Trigger:** Runs after a ``User`` instance is created.
+
+    :param sender: The model class (CustomUser).
+    :param instance: The user instance.
+    :param created: Boolean, True if this is a new user.
+    """
     if created:
         Token.objects.create(user=instance)
         print(f"Created API Token for user: {instance.username}")

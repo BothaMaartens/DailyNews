@@ -135,3 +135,23 @@ GitHub.sublime-settings
 !.vscode/launch.json 
 !.vscode/extensions.json 
 .history
+
+# Virtual Environments
+.venv/
+.venv_docs/
+env/
+Lib/
+Scripts/
+Include/
+pyvenv.cfg
+
+# Python Caches
+__pycache__/
+*.pyc
+
+# Database and Media
+*.sqlite3
+
+# IDE files
+.vscode/
+.idea/

@@ -161,8 +161,7 @@ def handle_article_publication_and_sharing(sender, instance, created,
                              list(publisher_subscribers))
 
         if recipient_list:
-            article_url = f"{settings.BASE_URL}{reverse('article_reader',
-                                                        args=[instance.pk])}"
+            article_url = f"{settings.BASE_URL}{reverse('article_reader', args=[instance.pk])}"
 
             subject = (f"NEW ARTICLE: {instance.title} by "
                        f"{instance.author.get_full_name() or
@@ -203,9 +202,7 @@ def handle_article_publication_and_sharing(sender, instance, created,
                 settings.X_USER_ACCESS_TOKEN:
             try:
                 # Construct the tweet text
-                article_url = f"{settings.BASE_URL}{reverse('article_reader',
-                                                            args=[instance.pk]
-                                                            )}"
+                article_url = f"{settings.BASE_URL}{reverse('article_reader', args=[instance.pk])}"
                 tweet_text = (
                     f"NEW: {instance.title} by {instance.author.username} for "
                     f" {instance.publisher.name}. "

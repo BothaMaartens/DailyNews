@@ -213,7 +213,11 @@ def toggle_subscription(request):
 
 @login_required
 def logout_view(request):
-    """Handles user logout."""
+    """
+    Logs out the current user and redirects to the login page.
+
+    :param request: The HTTP request object.
+    """
     logout(request)
     return redirect('login')
 
@@ -225,7 +229,19 @@ def register_select_role(request):
 
 def register_user(request, role_name, form_class, template_name,
                   redirect_name):
-    """Generic function to handle all role-based registration forms."""
+    """
+    Generic helper view to handle registration for different user roles.
+
+    Processes the form, assigns the role, handles implicit publisher affiliation
+    (for Editors), logs the user in, and redirects to their specific home page.
+
+    :param request: The HTTP request object.
+    :param role_name: String role ('READER', 'JOURNALIST', 'EDITOR').
+    :param form_class: The Django form class to use for validation.
+    :param template_name: The name of the template to render.
+    :param redirect_name: The URL name to redirect to upon success.
+    :return: Rendered template or redirect.
+    """
     if request.method == 'POST':
         # CRITICAL FIX 1: Pass request.FILES to handle profile picture upload
         form = form_class(request.POST, request.FILES)
@@ -298,7 +314,19 @@ def register_editor(request):
 @login_required
 @user_passes_test(is_reader, login_url='/login/')
 def reader_home(request):
-    """Displays the main news feed and subscribed content."""
+    """
+    Displays the personalized news feed for a Reader.
+
+    Aggregates articles from:
+        1. Subscribed Journalists.
+        2. Subscribed Publishers.
+        3. A general feed of all published articles (excluding duplicates).
+
+    Also provides sidebar data for current subscriptions.
+
+    :param request: The HTTP request object.
+    :return: Rendered 'reader_home.html'.
+    """
 
     # 1. Get articles from subscribed sources
     subscribed_journalists = request.user.reader_journalist_subs.\
@@ -346,7 +374,16 @@ def reader_home(request):
 @login_required
 @user_passes_test(is_reader, login_url='/login/')
 def article_reader(request, pk):
-    """Displays a single article detail view for readers."""
+    """
+    Displays a single article detail view for a Reader.
+
+    Enforces that the article must be 'PUBLISHED' unless the user is staff.
+    Also displays 'More from this author'.
+
+    :param request: The HTTP request object.
+    :param pk: Primary Key of the article.
+    :return: Rendered 'article_reader.html'.
+    """
     article = get_object_or_404(Article, pk=pk)
 
     # Only allow viewing if the article is PUBLISHED
@@ -383,7 +420,13 @@ def article_reader(request, pk):
 @login_required
 @user_passes_test(is_reader, login_url='/login/')
 def journalist_profile(request, pk):
-    """Displays a journalist's profile and all their published articles."""
+    """
+    Displays a public profile for a Journalist.
+
+    :param request: The HTTP request object.
+    :param pk: Primary Key of the Journalist (CustomUser).
+    :return: Rendered 'journalist_profile.html'.
+    """
     journalist = get_object_or_404(CustomUser, pk=pk, role='Journalist')
 
     # Published articles by this journalist
@@ -411,7 +454,13 @@ def journalist_profile(request, pk):
 @login_required
 @user_passes_test(is_reader, login_url='/login/')
 def publisher_profile(request, pk):
-    """Displays a publisher's profile and all their published articles."""
+    """
+    Displays a public profile for a Publisher.
+
+    :param request: The HTTP request object.
+    :param pk: Primary Key of the Publisher.
+    :return: Rendered 'publisher_profile.html'.
+    """
     publisher = get_object_or_404(Publisher, pk=pk)
 
     # Published articles by this publisher

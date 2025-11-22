@@ -4,9 +4,22 @@
 
 # ***************************** views.py *******************************
 
-# This file contains the views for the DailyNews Application
+"""
+views.py
+========
 
-# from urllib import request
+This module handles the request-response cycle for the DailyNews Application.
+
+It organizes views into logical sections:
+    1. **Authentication & Registration:** Login, Logout, and generic
+        registration handlers.
+    2. **Reader Views:** Public feeds, article reading, and subscriptions.
+    3. **Journalist Views:** Dashboard, article creation, and editing.
+    4. **Editor Views:** Dashboard, article review, and publishing.
+    5. **Subscription Management:** Logic for following publishers and
+        journalists.
+"""
+
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required, user_passes_test
@@ -46,7 +59,16 @@ def is_publisher_staff(user):
 
 # 1. AUTHENTICATION & REGISTRATION VIEWS
 def login_view(request):
-    """Handles user login and redirects based on role or 'next' URL."""
+    """
+    Handles user login and redirects based on role or 'next' URL.
+
+    If a 'next' parameter is present in the POST request, the user is
+        redirected there.
+    Otherwise, they are redirected to their role-specific dashboard.
+
+    :param request: The HTTP request object.
+    :return: Rendered login page or redirect to home.
+    """
 
     # Define a default role-based redirect in case 'next' is not present
     def get_role_redirect_url(user):
@@ -84,8 +106,13 @@ def login_view(request):
 # DailyNews_App/views.py (Modified article_list function)
 def article_list(request):
     """
-    Displays all published articles, with pre-calculated subscription status
-    for logged-in users.
+    Displays a global list of all published articles.
+
+    Calculates subscription status for logged-in users to toggle UI buttons
+    (Subscribe/Unsubscribe) efficiently.
+
+    :param request: The HTTP request object.
+    :return: Rendered 'article_list.html' with article data context.
     """
 
     # Fetch all PUBLISHED articles
@@ -128,7 +155,13 @@ def article_list(request):
 
 @login_required
 def toggle_subscription(request):
-    """Handles subscription/unsubscription to journalists or publishers."""
+    """
+    Handles POST requests to subscribe/unsubscribe to journalists or
+    publishers.
+
+    :param request: The HTTP request object (must be POST).
+    :return: Redirects back to 'article_list'.
+    """
     if request.method == 'POST':
         user = request.user
         item_id = request.POST.get('item_id')

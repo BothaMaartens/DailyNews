@@ -4,9 +4,18 @@
 
 # ***************************** models.py ******************************
 
-# This file contains the models for the DailyNews_App application,
-# including the CustomUser model with roles, Publisher model, Article
-# model and the subcription intermediary models.
+"""
+models.py
+=========
+
+This module defines the database structure for the DailyNews application.
+
+It includes models for:
+    * User management with specific roles (Reader, Journalist, Editor).
+    * Publisher organizations.
+    * Article content management and workflow.
+    * Subscription relationships between readers, publishers, and journalists.
+"""
 
 from django.contrib.auth.models import AbstractUser, Group, Permission
 from django.db import models
@@ -24,8 +33,13 @@ USER_ROLES = (
 # --- 1. PUBLISHER MODEL ---
 class Publisher(models.Model):
     """
-    A Publisher is an organization that employs Editors and Journalists
+    Represents a news organization that employs Editors and Journalists
     and publishes Articles.
+
+    :ivar name: The unique name of the publisher.
+    :ivar description: A text description of the publisher.
+    :ivar access_password: A specific code used during registration to
+        link staff to this publisher.
     """
     name = models.CharField(max_length=100, unique=True)
     description = models.TextField(blank=True, null=True)
@@ -59,7 +73,20 @@ class Publisher(models.Model):
 
 # --- 2. CUSTOM USER MODEL ---
 class CustomUser(AbstractUser):
-    # Core Role Field
+    """
+    Custom user model extending Django's AbstractUser.
+
+    Includes role-based fields and subscription relationships.
+
+    :ivar role: The user's role in the system (Reader, Journalist, or Editor).
+    :ivar publisher_subscriptions: M2M relationship to Publishers a Reader
+        follows.
+    :ivar journalist_subscriptions: M2M relationship to Journalists a Reader
+        follows.
+    :ivar publishers: M2M relationship indicating which Publishers employ this
+        user (for staff).
+    :ivar profile_photo: Optional profile image for the user.
+    """
     role = models.CharField(max_length=10, choices=USER_ROLES,
                             default='Reader')
 
@@ -115,7 +142,13 @@ class CustomUser(AbstractUser):
 
 # --- 3. SUBSCRIPTION MODELS ---
 class PublisherSubscription(models.Model):
-    """Explicit model for a Reader subscribing to a Publisher."""
+    """
+    Intermediary model representing a Reader's subscription to a Publisher.
+
+    :ivar reader: The CustomUser (Reader) who is subscribing.
+    :ivar publisher: The Publisher being subscribed to.
+    :ivar date_subscribed: Timestamp of when the subscription was created.
+    """
     reader = models.ForeignKey(CustomUser, on_delete=models.CASCADE,
                                related_name='reader_publisher_subs')
     publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE)

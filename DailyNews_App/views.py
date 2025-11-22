@@ -489,7 +489,15 @@ def publisher_profile(request, pk):
 @login_required
 @user_passes_test(is_journalist, login_url='/login/')
 def journalist_home(request):
-    """Journalist dashboard showing their articles grouped by status."""
+    """
+    Displays the Journalist dashboard.
+
+    Lists articles grouped by status (Draft, Awaiting Review, Published,
+    Rejected).
+
+    :param request: The HTTP request object.
+    :return: Rendered 'journalist_home.html'.
+    """
     journalist_articles = Article.objects.filter(author=request.user).\
         order_by('-last_edited_date')
 
@@ -508,8 +516,16 @@ def journalist_home(request):
 @user_passes_test(is_journalist)
 def article_create_edit(request, pk=None):
     """
-    Handles creating and editing of articles by Journalists, allowing selection
-    of which affiliated publisher to submit to.
+    Handles creation and editing of articles by Journalists.
+
+    Logic:
+        * If ``pk`` is provided, edit the existing article (if owned by user).
+        * If ``pk`` is None, create a new article.
+        * Handles submission to a specific Publisher (Awaiting Review) or Independent Publishing.
+
+    :param request: The HTTP request object.
+    :param pk: (Optional) Primary Key of the article to edit.
+    :return: Rendered form or redirect to dashboard.
     """
 
     # Get ALL affiliated publishers
@@ -639,7 +655,20 @@ def article_create_edit(request, pk=None):
 @login_required
 @user_passes_test(is_publisher_staff)
 def article_delete(request, pk):
-    """Allows a journalist or affiliated editor to delete an article."""
+    """
+    Allows a Journalist or Editor to delete an article.
+
+    Permission Logic:
+        * Must be the author of the article OR
+        * Must be an Editor affiliated with the article's publisher.
+        * Article must NOT be in a finalized state (Published/Rejected)
+        if restricting logic applies.
+
+    :param request: The HTTP request object.
+    :param pk: Primary Key of the article to delete.
+    :return: Rendered confirmation page (GET) or redirect after deletion
+    (POST).
+    """
 
     article = get_object_or_404(Article, pk=pk)
     user_role = request.user.role
@@ -688,7 +717,16 @@ def article_delete(request, pk):
 @login_required
 @user_passes_test(is_journalist, login_url='/login/')
 def article_journalist(request, pk):
-    """Journalist view of their own article."""
+    """
+    Displays a detail view of an article specifically for the author
+    (Journalist).
+
+    Includes the ability to delete the article via POST.
+
+    :param request: The HTTP request object.
+    :param pk: Primary Key of the article.
+    :return: Rendered 'article_journalist.html'.
+    """
     article = get_object_or_404(Article, pk=pk, author=request.user)
 
     if request.method == 'POST' and 'delete' in request.POST:
@@ -707,8 +745,15 @@ def article_journalist(request, pk):
 @login_required
 @user_passes_test(is_editor, login_url='/login/')
 def editor_home(request):
-    """Editor dashboard showing articles awaiting review from their
-    publisher."""
+    """
+    Displays the Editor dashboard.
+
+    Shows articles that are 'AWAITING_REVIEW' for the publishers this
+        Editor manages.
+
+    :param request: The HTTP request object.
+    :return: Rendered 'editor_home.html'.
+    """
     affiliated_publishers = request.user.publishers.all()
 
     if not affiliated_publishers:

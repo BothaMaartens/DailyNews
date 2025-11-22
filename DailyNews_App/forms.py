@@ -4,7 +4,20 @@
 
 # ***************************** forms.py *******************************
 
-# This file contains the forms for the DailyNews_App application
+"""
+forms.py
+========
+
+This module contains the Django forms used for user input, validation,
+and data processing.
+
+It includes:
+    * **Authentication Forms:** Login and Registration.
+    * **Role-Specific Registration:** handling distinct logic for Readers,
+    Journalists, and Editors.
+    * **Article Management:** Forms for creating, editing, and updating
+    article status.
+"""
 
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -14,8 +27,11 @@ from .models import CustomUser, Publisher, Article
 
 # 1. Login Form
 class CustomLoginForm(AuthenticationForm):
-    """A simple form based on Django's built-in AuthenticationForm for
-    user login."""
+    """
+    A customized login form extending Django's built-in AuthenticationForm.
+
+    Adds specific widgets and placeholders for better UX.
+    """
     username = forms.CharField(
         label='User Name',
         widget=forms.TextInput(attrs={'placeholder': 'Enter Username'})
@@ -29,8 +45,13 @@ class CustomLoginForm(AuthenticationForm):
 # 2. Base Registration Form
 class BaseUserRegistrationForm(UserCreationForm):
     """
-    Base form for all user roles, handling fields common to CustomUser
-    like username, email, and password management.
+    Base registration form for all user roles.
+
+    Extends ``UserCreationForm`` to include email and profile photo fields,
+    which are common across all roles (Reader, Journalist, Editor).
+
+    :ivar email: Required email field.
+    :ivar profile_photo: Optional image upload field.
     """
     email = forms.EmailField(
         required=True,
@@ -64,8 +85,14 @@ class ReaderRegistrationForm(BaseUserRegistrationForm):
 # B. Publisher Affiliation Mixin (For Journalist and Editor)
 class PublisherAffiliationForm(BaseUserRegistrationForm):
     """
-    Form that adds specific fields for the two required publishers,
-    handles validation, and ensures at least one publisher is joined.
+    A mixin/base form for staff roles (Journalist/Editor) that require
+    Publisher affiliation.
+
+    Handles the input of 'access passwords' to link a new user to a
+    Publisher organization.
+
+    :ivar actualtoday_password: Password field for joining 'ActualToday'.
+    :ivar sporttoday_password: Password field for joining 'SportToday'.
     """
     actualtoday_password = forms.CharField(
         max_length=128,
@@ -84,8 +111,18 @@ class PublisherAffiliationForm(BaseUserRegistrationForm):
 
     def clean(self):
         """
-        Custom validation to verify publisher join passwords and collect all
-        valid Publisher objects for Many-to-Many assignment.
+        Custom validation logic to verify publisher passwords.
+
+        Process:
+            1. Checks if at least one password field is filled.
+            2. Verifies the provided password against the stored
+            ``Publisher`` record.
+            3. If valid, adds the Publisher object to
+            ``cleaned_data['publishers_to_join']``.
+
+        :return: The cleaned data dictionary.
+        :raises ValidationError: If no publisher is selected or if
+        passwords are incorrect.
         """
         cleaned_data = super().clean()
 
@@ -159,7 +196,15 @@ class EditorRegistrationForm(PublisherAffiliationForm):
 
 # E. Article Management Forms
 class ArticleForm(forms.ModelForm):
-    """Form used by Journalists to create and edit articles."""
+    """
+    Form used by Journalists and Editors to create and edit articles.
+
+    :ivar title: The headline of the article.
+    :ivar body: The main text content.
+    :ivar publisher: Dropdown to select which publisher this article
+        belongs to.
+    :ivar featured_image: Optional cover image.
+    """
 
     class Meta:
         model = Article
@@ -174,6 +219,14 @@ class ArticleForm(forms.ModelForm):
         }
 
     def __init__(self, *args, **kwargs):
+        """
+        Initializes the form and dynamically filters the 'publisher' field.
+
+        Ensures that a Journalist can only submit articles to a Publisher they
+        are actually affiliated with.
+
+        :param author: The user instance (Journalist) passed from the view.
+        """
         author = kwargs.pop('author', None)
         super().__init__(*args, **kwargs)
         # Check if the form instance has an author
@@ -194,8 +247,9 @@ class ArticleForm(forms.ModelForm):
 
 class ArticleStatusUpdateForm(forms.ModelForm):
     """
-    Form used by Editors in article_editor.html to change the status
-    and provide optional notes/feedback.
+    Form used by Editors to change the workflow status of an article.
+
+    Typically used in the review dashboard.
     """
 
     class Meta:

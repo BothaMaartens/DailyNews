@@ -159,7 +159,13 @@ class PublisherSubscription(models.Model):
 
 
 class JournalistSubscription(models.Model):
-    """Explicit model for a Reader subscribing to a Journalist."""
+    """
+    Intermediary model representing a Reader's subscription to a Journalist.
+
+    :ivar reader: The CustomUser (Reader) who is subscribing.
+    :ivar journalist: The CustomUser (Journalist) being subscribed to.
+    :ivar date_subscribed: Timestamp of when the subscription was created.
+    """
     reader = models.ForeignKey(CustomUser, on_delete=models.CASCADE,
                                related_name='reader_journalist_subs')
     journalist = models.ForeignKey(CustomUser, on_delete=models.CASCADE,
@@ -178,6 +184,23 @@ class JournalistSubscription(models.Model):
 # --- 4. ARTICLE MODEL ---
 
 class Article(models.Model):
+    """
+    Represents a news article within the application.
+
+    :ivar title: The headline of the article.
+    :ivar body: The main content of the article.
+    :ivar creation_date: Automatically set when created.
+    :ivar last_edited_date: Automatically updated on save.
+    :ivar publication_date: Set automatically when status becomes 'PUBLISHED'.
+    :ivar publisher: The Publisher organization this article belongs to.
+    :ivar author: The Journalist who wrote the article.
+    :ivar editor: The Editor who reviewed the article.
+    :ivar status: The current workflow state (Draft, Awaiting Review, Rejected,
+        Published).
+    :ivar is_approved: Boolean flag, automatically True if status is Published.
+    :ivar featured_image: Main image for the article.
+    """
+
     # Status Choices
     STATUS_CHOICES = (
         ('DRAFT', 'Draft'),
@@ -216,6 +239,16 @@ class Article(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
+        """
+        Overrides the default save method to handle automatic approval logic.
+
+        If the status is set to 'PUBLISHED', ``is_approved`` is set to True
+        and ``publication_date`` is set to the current time (if not already 
+        set). Otherwise, ``is_approved`` is set to False.
+
+        :param args: Positional arguments passed to save.
+        :param kwargs: Keyword arguments passed to save.
+        """
         # Automatically set is_approved if status is PUBLISHED
         if self.status == 'PUBLISHED':
             self.is_approved = True
@@ -236,6 +269,17 @@ class Article(models.Model):
 # --- 5. SIGNAL FOR PERMISSION ASSIGNMENT ---
 @receiver(post_save, sender=CustomUser)
 def assign_user_to_group(sender, instance, created, **kwargs):
+    """
+    Signal receiver to automatically assign users to groups based on their
+    selected role.
+
+    Triggered after a ``CustomUser`` is saved.
+
+    :param sender: The model class (CustomUser).
+    :param instance: The actual instance being saved.
+    :param created: Boolean, True if a new record was created.
+    :param kwargs: Additional keyword arguments.
+    """
     if created:
         role_name = instance.role
 

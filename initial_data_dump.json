@@ -1,0 +1,1278 @@
+[
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 4,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 4,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 4,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 4,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 5,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 5,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 5,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 5,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add journalist subscription",
+    "content_type": 6,
+    "codename": "add_journalistsubscription"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change journalist subscription",
+    "content_type": 6,
+    "codename": "change_journalistsubscription"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete journalist subscription",
+    "content_type": 6,
+    "codename": "delete_journalistsubscription"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view journalist subscription",
+    "content_type": 6,
+    "codename": "view_journalistsubscription"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add publisher",
+    "content_type": 7,
+    "codename": "add_publisher"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change publisher",
+    "content_type": 7,
+    "codename": "change_publisher"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete publisher",
+    "content_type": 7,
+    "codename": "delete_publisher"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view publisher",
+    "content_type": 7,
+    "codename": "view_publisher"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add publisher subscription",
+    "content_type": 8,
+    "codename": "add_publishersubscription"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change publisher subscription",
+    "content_type": 8,
+    "codename": "change_publishersubscription"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete publisher subscription",
+    "content_type": 8,
+    "codename": "delete_publishersubscription"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view publisher subscription",
+    "content_type": 8,
+    "codename": "view_publishersubscription"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 9,
+    "codename": "add_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 9,
+    "codename": "change_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 9,
+    "codename": "delete_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 9,
+    "codename": "view_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add article",
+    "content_type": 10,
+    "codename": "add_article"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change article",
+    "content_type": 10,
+    "codename": "change_article"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete article",
+    "content_type": 10,
+    "codename": "delete_article"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view article",
+    "content_type": 10,
+    "codename": "view_article"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can formally approve and publish an article",
+    "content_type": 10,
+    "codename": "publish_article"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can add Token",
+    "content_type": 11,
+    "codename": "add_token"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can change Token",
+    "content_type": 11,
+    "codename": "change_token"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can delete Token",
+    "content_type": 11,
+    "codename": "delete_token"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can view Token",
+    "content_type": 11,
+    "codename": "view_token"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can add Token",
+    "content_type": 12,
+    "codename": "add_tokenproxy"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can change Token",
+    "content_type": 12,
+    "codename": "change_tokenproxy"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can delete Token",
+    "content_type": 12,
+    "codename": "delete_tokenproxy"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can view Token",
+    "content_type": 12,
+    "codename": "view_tokenproxy"
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 1,
+  "fields": {
+    "name": "Editor",
+    "permissions": [
+      38,
+      39,
+      41,
+      40
+    ]
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 2,
+  "fields": {
+    "name": "Journalist",
+    "permissions": [
+      37,
+      38,
+      39,
+      40
+    ]
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 3,
+  "fields": {
+    "name": "Reader",
+    "permissions": [
+      40,
+      21,
+      23,
+      29,
+      31
+    ]
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "DailyNews_App",
+    "model": "journalistsubscription"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "DailyNews_App",
+    "model": "publisher"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "DailyNews_App",
+    "model": "publishersubscription"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "DailyNews_App",
+    "model": "customuser"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "DailyNews_App",
+    "model": "article"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "authtoken",
+    "model": "token"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "authtoken",
+    "model": "tokenproxy"
+  }
+},
+{
+  "model": "DailyNews_App.publisher",
+  "pk": 1,
+  "fields": {
+    "name": "ActualToday",
+    "description": "Core news outlet: ActualToday",
+    "access_password": "ActualToday"
+  }
+},
+{
+  "model": "DailyNews_App.publisher",
+  "pk": 2,
+  "fields": {
+    "name": "SportToday",
+    "description": "Core news outlet: SportToday",
+    "access_password": "SportToday"
+  }
+},
+{
+  "model": "DailyNews_App.customuser",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$1uM1NrRAIy97rCkMaZu1Ed$Bh6RXf8xSei+1y/GMRp3IImDY0aPhoBgsn+MvsPruYU=",
+    "last_login": "2025-11-18T19:45:10.177Z",
+    "is_superuser": true,
+    "username": "Botha",
+    "first_name": "",
+    "last_name": "",
+    "email": "bothamaartens@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-11-18T19:38:55.454Z",
+    "role": "Reader",
+    "profile_photo": "",
+    "publishers": [],
+    "groups": [
+      3
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "DailyNews_App.customuser",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$DPT8R17amXKalklKlXU6gC$tUSQpa7ekinAdgzIP6IoAwKnC9WH6xP5vBvLrYQNSmo=",
+    "last_login": "2025-11-18T20:03:46.222Z",
+    "is_superuser": false,
+    "username": "EditNews",
+    "first_name": "",
+    "last_name": "",
+    "email": "NewsEdit@abc.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-18T19:46:45.221Z",
+    "role": "EDITOR",
+    "profile_photo": "profile_pics/EditNews.jpg",
+    "publishers": [
+      1
+    ],
+    "groups": [
+      1
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "DailyNews_App.customuser",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$faVO4W9qBxK3Cq2B26GkLX$EVlv1dCb7K8BE+YYRLM299nWO1/zkCHBbFWYM2QB2xc=",
+    "last_login": "2025-11-18T20:04:15.564Z",
+    "is_superuser": false,
+    "username": "EditToday",
+    "first_name": "",
+    "last_name": "",
+    "email": "EditToday@abc.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-18T19:47:29.061Z",
+    "role": "EDITOR",
+    "profile_photo": "profile_pics/EditToday.jpg",
+    "publishers": [
+      1
+    ],
+    "groups": [
+      1
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "DailyNews_App.customuser",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$UMShFNAfdtKd7EboCgaMWq$/np75K+T5VMUmqNyNKbcRXG5PrswP6iE/iwKs3OgAIk=",
+    "last_login": "2025-11-18T20:04:40.768Z",
+    "is_superuser": false,
+    "username": "SportEdit1000",
+    "first_name": "",
+    "last_name": "",
+    "email": "SportEdit1000@abc.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-18T19:48:09.776Z",
+    "role": "EDITOR",
+    "profile_photo": "profile_pics/SportEdit1000.jpg",
+    "publishers": [
+      2
+    ],
+    "groups": [
+      1
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "DailyNews_App.customuser",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$uYxAaetNzWetylAmFgoiZJ$jVNu9xFeaeIWlkDYGQscqp0L6kAi/69cPM5f29lhHAY=",
+    "last_login": "2025-11-18T19:49:21.061Z",
+    "is_superuser": false,
+    "username": "Traffic_Roads",
+    "first_name": "",
+    "last_name": "",
+    "email": "RoadsTraffic@abc.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-18T19:49:00.760Z",
+    "role": "JOURNALIST",
+    "profile_photo": "profile_pics/Traffic_Roads.jpg",
+    "publishers": [
+      1
+    ],
+    "groups": [
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "DailyNews_App.customuser",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$aHjMUeUmOHazbSueeQVUpW$1ABYDtlsx+5Khwiih7laIsPaTkn2ciQJvPMI9QV3PtY=",
+    "last_login": "2025-11-18T19:52:07.236Z",
+    "is_superuser": false,
+    "username": "JohnCricket",
+    "first_name": "",
+    "last_name": "",
+    "email": "JohnCricket@abc.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-18T19:52:06.309Z",
+    "role": "JOURNALIST",
+    "profile_photo": "profile_pics/JohnCricket.jpg",
+    "publishers": [
+      2
+    ],
+    "groups": [
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "DailyNews_App.customuser",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$4OlvTZLhZrihZsUWThlbSK$ymzuMH/F41hbk5irIdlbIMBhw4J0pqvminPVrkyQe08=",
+    "last_login": "2025-11-18T19:53:44.732Z",
+    "is_superuser": false,
+    "username": "Golf007",
+    "first_name": "",
+    "last_name": "",
+    "email": "Golf007@abc.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-18T19:53:43.823Z",
+    "role": "JOURNALIST",
+    "profile_photo": "profile_pics/Golf007.jpg",
+    "publishers": [
+      2
+    ],
+    "groups": [
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "DailyNews_App.customuser",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$pV7uc1a87uzGOAciimundB$QUb58l5yO8b91+XPo9+SsrygsbvAkhYZi+wHX6mkVII=",
+    "last_login": "2025-11-18T19:54:55.129Z",
+    "is_superuser": false,
+    "username": "RugbyRocks",
+    "first_name": "",
+    "last_name": "",
+    "email": "RugbyRocks@abc.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-18T19:54:54.061Z",
+    "role": "JOURNALIST",
+    "profile_photo": "profile_pics/RugbyRocks.jpg",
+    "publishers": [
+      2
+    ],
+    "groups": [
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "DailyNews_App.customuser",
+  "pk": 9,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$q5Z0NscGx3TjaxpqmiJ33u$ZP/Qa0gF/J5KA/Sn7yW0GmzNaXlCeM9pem7ftrEdjZQ=",
+    "last_login": "2025-11-18T19:56:58.496Z",
+    "is_superuser": false,
+    "username": "Headlines",
+    "first_name": "",
+    "last_name": "",
+    "email": "Headlines@abc.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-18T19:56:57.089Z",
+    "role": "JOURNALIST",
+    "profile_photo": "profile_pics/HeadLines.jpg",
+    "publishers": [
+      1
+    ],
+    "groups": [
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "DailyNews_App.customuser",
+  "pk": 10,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$t67VeIfSJ2vjsNNk7bDVox$vjwbsh+IcHcXc83MQjJLex1FOiEUAxnp8E/NAGk1F2E=",
+    "last_login": "2025-11-18T20:00:28.858Z",
+    "is_superuser": false,
+    "username": "MrAllRound",
+    "first_name": "",
+    "last_name": "",
+    "email": "MrAllRound@abc.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-18T20:00:27.937Z",
+    "role": "JOURNALIST",
+    "profile_photo": "profile_pics/MrAllRound.jpg",
+    "publishers": [
+      1,
+      2
+    ],
+    "groups": [
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "DailyNews_App.customuser",
+  "pk": 11,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$HE9NRPTBw7ZRkjGLb4CYev$2vFrGtrjswPnQimzU00d6VHZyYwiUHuhTxXmpwVRFps=",
+    "last_login": "2025-11-18T20:08:51.872Z",
+    "is_superuser": false,
+    "username": "Reader1",
+    "first_name": "",
+    "last_name": "",
+    "email": "Reader@abc.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-18T20:05:51.424Z",
+    "role": "READER",
+    "profile_photo": "profile_pics/1.jpg",
+    "publishers": [],
+    "groups": [
+      3
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "DailyNews_App.customuser",
+  "pk": 12,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$CZGbbCd897xxWbRPWDotY4$qT24nFwzslPFsiWqs1pPgWfjaS8RY/G/B0aoYNCJBjk=",
+    "last_login": "2025-11-18T20:06:50.487Z",
+    "is_superuser": false,
+    "username": "Reader2",
+    "first_name": "",
+    "last_name": "",
+    "email": "Reader2@abc.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-18T20:06:49.595Z",
+    "role": "READER",
+    "profile_photo": "profile_pics/2.jpg",
+    "publishers": [],
+    "groups": [
+      3
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "DailyNews_App.customuser",
+  "pk": 13,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$HPirZ4lZRtIAIJByM3uuBA$Skk4BYbMtSesb1xURi17rj3fqch7y2hvVnnPiEajOFk=",
+    "last_login": "2025-11-18T20:08:03.631Z",
+    "is_superuser": false,
+    "username": "Reader3",
+    "first_name": "",
+    "last_name": "",
+    "email": "Reader3@abc.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-18T20:08:02.751Z",
+    "role": "READER",
+    "profile_photo": "profile_pics/3.jpg",
+    "publishers": [],
+    "groups": [
+      3
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "DailyNews_App.publishersubscription",
+  "pk": 1,
+  "fields": {
+    "reader": 11,
+    "publisher": 1,
+    "date_subscribed": "2025-11-18T20:06:12.993Z"
+  }
+},
+{
+  "model": "DailyNews_App.publishersubscription",
+  "pk": 2,
+  "fields": {
+    "reader": 12,
+    "publisher": 2,
+    "date_subscribed": "2025-11-18T20:07:02.180Z"
+  }
+},
+{
+  "model": "DailyNews_App.publishersubscription",
+  "pk": 3,
+  "fields": {
+    "reader": 12,
+    "publisher": 1,
+    "date_subscribed": "2025-11-18T20:07:16.314Z"
+  }
+},
+{
+  "model": "DailyNews_App.publishersubscription",
+  "pk": 4,
+  "fields": {
+    "reader": 13,
+    "publisher": 1,
+    "date_subscribed": "2025-11-18T20:08:13.862Z"
+  }
+},
+{
+  "model": "DailyNews_App.journalistsubscription",
+  "pk": 1,
+  "fields": {
+    "reader": 11,
+    "journalist": 10,
+    "date_subscribed": "2025-11-18T20:06:07.113Z"
+  }
+},
+{
+  "model": "DailyNews_App.journalistsubscription",
+  "pk": 2,
+  "fields": {
+    "reader": 12,
+    "journalist": 5,
+    "date_subscribed": "2025-11-18T20:07:11.804Z"
+  }
+},
+{
+  "model": "DailyNews_App.journalistsubscription",
+  "pk": 3,
+  "fields": {
+    "reader": 12,
+    "journalist": 8,
+    "date_subscribed": "2025-11-18T20:07:29.140Z"
+  }
+},
+{
+  "model": "DailyNews_App.journalistsubscription",
+  "pk": 4,
+  "fields": {
+    "reader": 13,
+    "journalist": 9,
+    "date_subscribed": "2025-11-18T20:08:21.704Z"
+  }
+},
+{
+  "model": "DailyNews_App.article",
+  "pk": 1,
+  "fields": {
+    "title": "Hugenot Tunnel Closed Again: Planned Maintenance Plunges N1 Traffic into Chaos",
+    "body": "PAARL, WESTERN CAPE û Motorists attempting to traverse the vital N1 route between Cape Town and the interior woke up to familiar frustration this morning, as the Hugenot Tunnel was once again closed to traffic. The South African National Roads Agency (SANRAL) confirmed the total closure, stating it is necessary to complete the overdue permanent repairs stemming from the major fire incident earlier this month.\r\nThe closure, which began at 00:01 on Friday and is provisionally scheduled to last until 06:00 on Monday morning, marks the third significant interruption to the key economic artery this quarter, leading to predictable chaos on alternative routes.\r\n\"We understand the extreme inconvenience this causes, especially heading into a busy weekend,\" said Randall Cable, SANRAL's Western Cape Provincial Head. \"However, the structural and electrical damage incurred during the recent bus fire requires extensive, specialised work that simply cannot be completed safely while the tunnel is operational. We are prioritising safety and long-term integrity.\"\r\nThe temporary closure immediately pushed high volumes of traffic onto the alternative routes, most notably the R101 Du Toitskloof Pass. Local traffic officials reported heavy congestion from as early as 05:00, with travel times on the pass soaring.\r\nDu Toitskloof Pass (R101): Experiencing significant delays, with stop-and-go systems in place for construction unrelated to the tunnel closure. Heavy Motor Vehicles (HMVs) are permitted but cautioned to expect slow-moving traffic.\r\nWolseley/Wellington Route (R46/R44): Recommended as an alternative for light motor vehicles, but is also experiencing increased volumes.",
+    "creation_date": "2025-11-18T19:50:10.562Z",
+    "last_edited_date": "2025-11-18T19:50:10.562Z",
+    "publication_date": "2025-11-18T19:50:10.562Z",
+    "publisher": null,
+    "author": 5,
+    "editor": null,
+    "status": "PUBLISHED",
+    "is_approved": true,
+    "featured_image": ""
+  }
+},
+{
+  "model": "DailyNews_App.article",
+  "pk": 2,
+  "fields": {
+    "title": "Friday Afternoon Gridlock Returns: Cape Town's Major Routes Choked",
+    "body": "CAPE TOWN û The perennial struggle of the Friday afternoon commute is back with a vengeance this week, as major metropolitan highways are experiencing peak congestion. Commuters heading out of the city centre are facing significant delays, with the evening \"Great Trek\" starting earlier than usual.\r\nTraffic flow is severely affected on all major routes leading away from the CBD and industrial areas:\r\nN1 Outbound: Heavy congestion reported from the City Bowl, slowing to a crawl past the Century City and Plattekloof interchanges.\r\nN2 Outbound (towards the Airport/Somerset West): High volumes are causing significant delays, particularly on Hospital Bend and moving past the M5 turn-off.\r\nM5 Southbound: The route is heavily backed up, especially approaching the N2 and N7 intersections.\r\nM3 Outbound (towards Southern Suburbs): Consistent slow-moving traffic is evident from the start of the highway past the UCT and Constantia exits.\r\nTraffic analysts note that the return to office post-COVID, coupled with high inbound migration to the Western Cape, continues to worsen the city's notorious afternoon gridlock. A journey that normally takes 30 minutes is currently stretching to well over an hour in the worst affected areas.\r\nMotorists are advised to delay non-essential travel or utilise public transport where possible. Allow a minimum of 45 to 90 minutes for any cross-city journey this evening.",
+    "creation_date": "2025-11-18T19:50:57.206Z",
+    "last_edited_date": "2025-11-18T20:04:19.866Z",
+    "publication_date": "2025-11-18T20:04:19.864Z",
+    "publisher": 1,
+    "author": 5,
+    "editor": 3,
+    "status": "PUBLISHED",
+    "is_approved": true,
+    "featured_image": ""
+  }
+},
+{
+  "model": "DailyNews_App.article",
+  "pk": 3,
+  "fields": {
+    "title": "India Clinch Maiden Women's Cricket World Cup Title in Thrilling Final",
+    "body": "India created history by defeating South Africa by 52 runs in the final of the ICC Women's Cricket World Cup 2025 at the Dr. DY Patil Stadium in Navi Mumbai, securing their first-ever World Cup crown.\r\nMatch Summary\r\nToss: South Africa won the toss and elected to bowl.\r\nIndia's Innings: India posted a challenging total of 298/7 in their 50 overs, the second-highest score in a Women's World Cup final. The innings was anchored by a scintillating performance from opener Shafali Verma (87 runs off 78 balls), who shared a crucial 104-run opening partnership with Smriti Mandhana (45). All-rounder Deepti Sharma (58 off 58 balls) provided late impetus, guiding the team toward the formidable target.  Ayabonga Khaka was the pick of the South African bowlers with 3/58.\r\nSouth Africa's Chase: Chasing 299, South Africa put up a valiant fight, largely through a magnificent century from their captain Laura Wolvaardt (101 off 98 balls). Wolvaardt's knock set a new record for the most runs in a single edition of the Women's ODI World Cup. However, she lacked substantial support at the other end.\r\nThe Turning Point: A dramatic collapse, triggered by the Indian spinners, derailed the chase. Deepti Sharma starred with the ball, taking a match-winning 5/39 ùthe first-ever five-wicket haul in a Women's World Cup final. Shafali Verma also contributed with two key wickets. South Africa were eventually bowled out for 246 in 45.3 overs.\r\nKey Performers & Awards\r\nPlayer of the Match: Shafali Verma (87 runs & 2/36).\r\nPlayer of the Tournament: Deepti Sharma (215 runs & 22 wickets).\r\nThe victory marked a watershed moment for Indian cricket, securing a major global title in front of a passionate home crowd and bringing their long wait for a Women's World Cup trophy to an end.",
+    "creation_date": "2025-11-18T19:52:49.847Z",
+    "last_edited_date": "2025-11-18T19:52:49.847Z",
+    "publication_date": "2025-11-18T19:52:49.847Z",
+    "publisher": null,
+    "author": 6,
+    "editor": null,
+    "status": "PUBLISHED",
+    "is_approved": true,
+    "featured_image": ""
+  }
+},
+{
+  "model": "DailyNews_App.article",
+  "pk": 4,
+  "fields": {
+    "title": "Golf World Update: Rival Tours and Physics of the 'Lip Out'",
+    "body": "The professional golf world continues to evolve its structure as the calendar turns to the offseason, while a new study provides a scientific look at one of the game's most frustrating moments.\r\nPGA Tour & LIV Golf Talks Continue with New Leadership\r\nThe long-running saga between the PGA Tour and LIV Golf has entered a new phase with a change in executive leadership on both sides, sparking renewed hope for unification.\r\nNew Leadership, New Talks: Both tours have new CEOs this yearùScott O'Neil for LIV Golf and Brian Rolapp for the PGA Tour. O'Neil recently admitted that he and Rolapp have had discussions and share a \"common view on what could be or should be the landscape of golf\" over the next few years.\r\nA \"Peculiar\" Change: Despite the positive rhetoric, LIV Golf has also made a significant, immediate change: the league will expand its format from 54 holes to 72 holes for the 2026 season. This move is widely seen as an attempt to gain recognition for Official World Golf Ranking (OWGR) points, which are crucial for players to qualify for the four Major Championships.\r\nThe Big Picture: While some reports suggest a full merger is unlikely, the ongoing discussions between the new heads of the organizations indicate that a joint effort to simplify the fractured pro golf schedule and bring the world's best players together is still a major goal.\r\nMajor Recap: Scottie SchefflerÆs Dominant 2025\r\nWhile the current season is in its final \"Fall Swing\" events, 2025 will be remembered as the year of Scottie Scheffler's Major dominance.\r\nScheffler claimed his third Major title of the year at the 2025 PGA Championship at Quail Hollow, defeating the field by five strokes.\r\nHe also won The Open Championship at Royal Portrush and secured his first Major of the year earlier in the season.",
+    "creation_date": "2025-11-18T19:54:12.236Z",
+    "last_edited_date": "2025-11-18T20:04:57.861Z",
+    "publication_date": "2025-11-18T20:04:57.858Z",
+    "publisher": 2,
+    "author": 7,
+    "editor": 4,
+    "status": "PUBLISHED",
+    "is_approved": true,
+    "featured_image": ""
+  }
+},
+{
+  "model": "DailyNews_App.article",
+  "pk": 5,
+  "fields": {
+    "title": "WP Club Rugby Sevens Heats Up",
+    "body": "The Score WP Club Rugby Sevens competition is currently underway, with the focus recently being on the second week of action at City Park. This shortened format keeps local players fit and provides an exciting, fast-paced version of the game.\r\nAs the primary season for 15s club rugby (Super League A, B, C, etc.) typically concludes by early to mid-October, current news leans towards the Sevens format and development projects.\r\nInspiration: Alexandra Girls in Cape Town\r\nA powerful story from the developmental side of rugby highlighted two young girls, Tsakane Chauke and Alice Ncube, from the Alexandra Wolves Rugby Club (Gauteng). They were selected for an inter-provincial competition and an intensive week-long camp hosted at Paarl GirlsÆ High School in the Western Cape.\r\nTheir journey, which included their very first flight to Cape Town, underscores the growing opportunities and the life-changing nature of rugby development for young talent across the country.",
+    "creation_date": "2025-11-18T19:55:28.356Z",
+    "last_edited_date": "2025-11-18T19:55:28.356Z",
+    "publication_date": "2025-11-18T19:55:28.355Z",
+    "publisher": null,
+    "author": 8,
+    "editor": null,
+    "status": "PUBLISHED",
+    "is_approved": true,
+    "featured_image": ""
+  }
+},
+{
+  "model": "DailyNews_App.article",
+  "pk": 7,
+  "fields": {
+    "title": "Navigating Global Risks: A Snapshot of International Travel Hazards",
+    "body": "International travel, whether for business or leisure, carries inherent risks that extend beyond simple inconvenience. Staying informed about geopolitical, health, and logistical hazards is essential for traveler safety.\r\nPolitical and civil instability remains a primary concern in many regions, often leading to unexpected and rapid deterioration of safety. Political Unrest and Terrorism: Political demonstrations, civil unrest, and isolated incidents of violence or terrorism can occur suddenly, leading to travel disruption, road closures, or direct threat to travelers. Destinations experiencing conflict or significant political tension require heightened vigilance. Crime and Kidnapping: In certain countries, the risk of violent crimeùincluding armed robbery, carjacking, and express kidnapping (where victims are forced to withdraw money)ùis notably high, especially in large urban centres or less-policed areas.\r\nHealth risks are diverse, ranging from endemic disease to natural disasters exacerbated by climate change. Infectious Diseases: Travelers face exposure to vector-borne diseases (e.g., Dengue, Malaria) and other infectious illnesses. Researching destination-specific health requirements and taking necessary vaccinations or prophylaxis is crucial. Natural Disasters: \r\n\r\nThe rising frequency and severity of extreme weather, such as floods, heatwaves, and powerful storms, can lead to severe operational disruptions, accommodation damage, and emergency evacuation needs.",
+    "creation_date": "2025-11-18T19:57:53.620Z",
+    "last_edited_date": "2025-11-18T19:57:53.620Z",
+    "publication_date": "2025-11-18T19:57:53.620Z",
+    "publisher": null,
+    "author": 9,
+    "editor": null,
+    "status": "PUBLISHED",
+    "is_approved": true,
+    "featured_image": ""
+  }
+},
+{
+  "model": "DailyNews_App.article",
+  "pk": 8,
+  "fields": {
+    "title": "Is the Rand performing?",
+    "body": "The Rand's performance this week continues to be influenced by a mix of local and international factors:\r\nGlobal Risk Sentiment: As a high-yielding emerging market currency, the Rand remains highly sensitive to global risk appetite. Periods of positive global sentiment or weakness in the US Dollar (USD) can often provide a short-term boost to the ZAR.\r\nDomestic Focus: Local economic and political developments remain crucial. Investors are closely monitoring South Africa's fiscal position and any signals regarding the domestic inflation and interest rate outlook.\r\nCommodity Prices: The ZAR's strength is often linked to the performance of South Africa's key commodity exports, such as gold and platinum. A rise in the prices of these commodities typically offers support to the currency.\r\nThe ZAR has seen a modest strengthening (a higher ZAR/USD value) during the early trading hours today, but remains highly susceptible to shifts in the macroeconomic environment.",
+    "creation_date": "2025-11-18T19:59:32.536Z",
+    "last_edited_date": "2025-11-18T20:04:02.677Z",
+    "publication_date": "2025-11-18T20:04:02.675Z",
+    "publisher": 1,
+    "author": 9,
+    "editor": 2,
+    "status": "PUBLISHED",
+    "is_approved": true,
+    "featured_image": ""
+  }
+},
+{
+  "model": "DailyNews_App.article",
+  "pk": 9,
+  "fields": {
+    "title": "Heatwave in the Western Cape",
+    "body": "The Western Cape, including Cape Town, is facing a period of hot to extremely hot weather.\r\nConditions: Fine and Hot to Very Hot. Cape Town is forecast for a high of around 29 degrees to 32 degrees with clear, sunny skies and fresh to strong South-Easterly winds.\r\nAdvisory: A Heatwave Advisory is in effect for the north-western parts of the Western Cape, with persistently high temperatures expected until Sunday. Residents are urged to stay hydrated and avoid prolonged sun exposure, especially with an Extreme UV Index of up to 11.\r\nCoastal Warning: A Yellow Level 1 Warning for damaging winds has been issued for the sea between Cape Columbine and Cape Agulhas, posing risks to small vessels.\r\nSevere Storms and Rainfall in the East\r\nThe inland and eastern provinces are currently under warnings for stormy and unsettled conditions.\r\nSevere Thunderstorms: A Yellow Level 2 Warning for severe thunderstorms is active for large parts of the interior, including the North West, Gauteng, Free State, Highveld of Mpumalanga, and Northern Cape.\r\nImpact: These storms are expected to bring heavy downpours, damaging winds, large amounts of small hail, and lightning. Risks include localised flooding of susceptible roads, damage to infrastructure and informal settlements, and hazards for agriculture.\r\nGauteng: Johannesburg residents can expect a cloudy day with scattered showers and thundershowers, with a high of approximately 25 degrees",
+    "creation_date": "2025-11-18T20:01:33.646Z",
+    "last_edited_date": "2025-11-18T20:03:54.721Z",
+    "publication_date": "2025-11-18T20:03:54.718Z",
+    "publisher": 1,
+    "author": 10,
+    "editor": 2,
+    "status": "PUBLISHED",
+    "is_approved": true,
+    "featured_image": ""
+  }
+},
+{
+  "model": "DailyNews_App.article",
+  "pk": 10,
+  "fields": {
+    "title": "The Ultimate Cape Test: A Look at the RMB Ultra-Trail Cape Town",
+    "body": "Cape Town, South Africa û As the South African summer approaches, the iconic Table Mountain National Park prepares to host one of the world's most gruelling and spectacular ultra-marathons: the RMB Ultra-Trail Cape Town (UTCT). This is not just a race; it's a profound test of endurance and a showcase of the Mother City's most dramatic landscapes.\r\nA Course that Demands Respect\r\nThe UTCT offers several distances, but the flagship event is the formidable 100-mile (160 km) race. The route is a challenging loop that traverses some of Cape Town's most famousùand steepestùlandmarks, providing runners with breath-taking views alongside relentless climbs.\r\nThe Route: The course winds through Table Mountain National Park, taking runners across Table Mountain, Lion's Head, Signal Hill, and the peaks of the Twelve Apostles.\r\nThe Challenge: Runners face immense elevation gain, highly technical terrain, and the unpredictable weather of the Cape Peninsula. The total ascent for the 100-mile race is often over 7,000 metresùa climb comparable to scaling Mount Everest from sea level.\r\nGlobal Appeal, Local Spirit\r\nThe UTCT has grown rapidly to become a fixture on the international ultra-running circuit, drawing elite athletes from across the globe who vie for the prestigious title. However, the event remains deeply rooted in local trail running culture, celebrating the rugged natural beauty that surrounds the city.\r\nThe race is also a major economic and tourism draw, as thousands of spectators, support crews, and local runners gather for the multi-day event. The finish line at the Cape Town City Hall is always a scene of powerful emotion, as athletesùmany having pushed past the 30-hour markùcomplete one of the most physically and mentally demanding challenges available in the sport.\r\nThe RMB Ultra-Trail Cape Town truly embodies the sui generis (unique) spirit of South Africa: a blend of world-class competition set against unparalleled natural wonder.",
+    "creation_date": "2025-11-18T20:02:06.722Z",
+    "last_edited_date": "2025-11-18T20:04:45.862Z",
+    "publication_date": "2025-11-18T20:04:45.859Z",
+    "publisher": 2,
+    "author": 10,
+    "editor": 4,
+    "status": "PUBLISHED",
+    "is_approved": true,
+    "featured_image": ""
+  }
+},
+{
+  "model": "DailyNews_App.article",
+  "pk": 11,
+  "fields": {
+    "title": "Great Local events",
+    "body": "The G20 is a forum for international economic cooperation that brings together the world's major economies.\r\nEvent: 2025 G20 Leaders' Summit\r\nDates: November 22û23, 2025\r\nLocation: Johannesburg, South Africa\r\nignificance: This is a major global summit where Heads of State and Government from the G20 countries (which represent over 85% of global GDP and two-thirds of the world population) gather. South Africa is the first African country to host a G20 Leaders' Summit, putting the country and continent at the center of global political and economic news.\r\nTheme: \"Solidarity, Equality, Sustainability\"\r\nOther Notable Events in November 2025:\r\nGovernment of National Unity (GNU) Leaders' Forum: This is an internal South African political development. The leaders of the political parties forming the GNU (which includes the ANC and others) have committed to meeting regularly to provide strategic direction and address national challenges. Any key agreement or disagreement emerging from these meetings would be a major local news story.\r\nParliamentary Activity: The National Assembly and National Council of Provinces will be active, with the President and Ministers responding to oral questions. Debates on legislation like the One Stop Border Post Bill or discussions around the Integrated Resources Plan (IRP) 2025 (for energy) could generate major headlines.\r\nTechnology & Business: The Africa Tech Festival (which includes AfricaCom and The AI Summit Cape Town) is scheduled for November, attracting major global and continental business and tech news coverage.",
+    "creation_date": "2025-11-18T20:02:30.888Z",
+    "last_edited_date": "2025-11-18T20:02:30.888Z",
+    "publication_date": "2025-11-18T20:02:30.887Z",
+    "publisher": null,
+    "author": 10,
+    "editor": null,
+    "status": "PUBLISHED",
+    "is_approved": true,
+    "featured_image": ""
+  }
+},
+{
+  "model": "DailyNews_App.article",
+  "pk": 12,
+  "fields": {
+    "title": "The Dangerous Dash for Dairy: Unpacking the Cooper's Hill Cheese-Rolling",
+    "body": "Brockworth, Gloucestershire, England û For a few chaotic minutes every Spring Bank Holiday, a sleepy English hillside transforms into the stage for what is routinely called \"the world's most dangerous footrace.\" This is the Cooper's Hill Cheese-Rolling and Wake , a centuries-old tradition where the prize is a wheel of cheese and the cost is often a trip to the medical tent.\r\nA Prize Worth the Pain\r\nThe premise is deceptively simple: competitors gather at the summit of the notoriously steep Cooper's Hill and, on the signal, chase a wheel of Double Gloucester cheese as it hurtles toward the bottom.\r\nThe Cheese: The prize is a hefty, 7û9 lb (approx. 3û4 kg) round of Double Gloucester.\r\nThe Speed: The round of dairy is given a one-second head start and can reach speeds up to an astonishing 70 mph (112 km/h).\r\nBecause the cheese is too fast to catchùitÆs actually collected by 'catchers' at the bottom to prevent it from rolling into the villageùthe race is simply won by the first person to cross the finish line, regardless of their method of descent.\r\nThe Controlled Chaos\r\nThe sheer gradient of Cooper's Hill (which can be as steep as 1:2 in places) means that running quickly transitions into a gravity-fueled tumble. Racers are not so much sprinting as they are flailing, flipping, and sliding, turning the 200-yard (180 m) course into a spectacular, rolling mud-bath of human bodies.\r\nThe event's origins are believed to date back to pagan rituals for a bountiful harvest, and the word \"Wake\" in the title refers to the traditional festival atmosphere and festive gathering that accompany the races. Despite being officially unmanaged due to safety concerns, the determination of the local community ensures this wonderfully bizarre tradition lives on year after year, attracting daring competitors and thousands of spectators from around the world.",
+    "creation_date": "2025-11-18T20:03:01.526Z",
+    "last_edited_date": "2025-11-18T20:03:01.526Z",
+    "publication_date": "2025-11-18T20:03:01.526Z",
+    "publisher": null,
+    "author": 10,
+    "editor": null,
+    "status": "PUBLISHED",
+    "is_approved": true,
+    "featured_image": ""
+  }
+},
+{
+  "model": "authtoken.token",
+  "pk": "0201cfc1fca97668f2c92fbb2b8f5ffdb1482224",
+  "fields": {
+    "user": 3,
+    "created": "2025-11-18T19:47:30.001Z"
+  }
+},
+{
+  "model": "authtoken.token",
+  "pk": "0445a363ff1211f6176a917360ed2c57f7a7c206",
+  "fields": {
+    "user": 4,
+    "created": "2025-11-18T19:48:10.660Z"
+  }
+},
+{
+  "model": "authtoken.token",
+  "pk": "0bedf5cb98c85e96ef03167f809784c97bfbfa84",
+  "fields": {
+    "user": 6,
+    "created": "2025-11-18T19:52:07.214Z"
+  }
+},
+{
+  "model": "authtoken.token",
+  "pk": "2d3b47bd249613e37fef72b4b6db59dde08436b7",
+  "fields": {
+    "user": 8,
+    "created": "2025-11-18T19:54:55.063Z"
+  }
+},
+{
+  "model": "authtoken.token",
+  "pk": "583f2a0e5bbcaacb0ae1ed79551a538371f1141a",
+  "fields": {
+    "user": 13,
+    "created": "2025-11-18T20:08:03.624Z"
+  }
+},
+{
+  "model": "authtoken.token",
+  "pk": "58e51319a256c5eec5f965781a04f899ee783fd3",
+  "fields": {
+    "user": 9,
+    "created": "2025-11-18T19:56:58.479Z"
+  }
+},
+{
+  "model": "authtoken.token",
+  "pk": "762db02031cac97817da66497519f7d63261c779",
+  "fields": {
+    "user": 2,
+    "created": "2025-11-18T19:46:47.461Z"
+  }
+},
+{
+  "model": "authtoken.token",
+  "pk": "796002311694ae79f40ecd45e684becbb2e0d96d",
+  "fields": {
+    "user": 7,
+    "created": "2025-11-18T19:53:44.718Z"
+  }
+},
+{
+  "model": "authtoken.token",
+  "pk": "96c5b0cb29fd2c7deede81605f34f38b4740c325",
+  "fields": {
+    "user": 1,
+    "created": "2025-11-18T19:38:56.244Z"
+  }
+},
+{
+  "model": "authtoken.token",
+  "pk": "bec2c8cdbc28ff7999f4699ecadb5d773f4a6eca",
+  "fields": {
+    "user": 10,
+    "created": "2025-11-18T20:00:28.843Z"
+  }
+},
+{
+  "model": "authtoken.token",
+  "pk": "e3582ba4b05ac39f19fb3d98d6b110945184a64a",
+  "fields": {
+    "user": 12,
+    "created": "2025-11-18T20:06:50.478Z"
+  }
+},
+{
+  "model": "authtoken.token",
+  "pk": "ea4e8b5c64500635fa03d93fce30f4428a8578b2",
+  "fields": {
+    "user": 11,
+    "created": "2025-11-18T20:05:52.308Z"
+  }
+},
+{
+  "model": "authtoken.token",
+  "pk": "f62f12fbe9ac85bd919e3252f7109a6fc3c9afe6",
+  "fields": {
+    "user": 5,
+    "created": "2025-11-18T19:49:01.870Z"
+  }
+}
+]

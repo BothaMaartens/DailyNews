@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Articles from {{ publisher.name }} - Daily News{% endblock %}
+
+{% block content %}
+
+<div class="profile-article-list-view">
+
+    <header class="profile-header publisher-header">
+        <div class="profile-meta">
+            <img src="{% static 'img/publisher_logo.png' %}" alt="{{ publisher.name }} logo" class="large-profile-pic publisher-logo-lg">
+            
+            <div class="profile-details">
+                <h1>{{ publisher.name }}</h1> 
+                <p class="profile-role">Publisher</p>
+                <p class="profile-bio">{{ publisher.description|default:"No description available." }}</p>
+                
+                <div class="profile-stats">
+                    <span class="stat-item">Articles: <strong>{{ publisher.article_count }}</strong></span>
+                    <span class="stat-item">Subscribers: <strong>{{ publisher.subscriber_count }}</strong></span>
+                    <span class="stat-item">Journalists: <strong>{{ publisher.journalist_count }}</strong></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-actions">
+            <p>Read all breaking news from **{{ publisher.name }}** below.</p>
+        </div>
+    </header>
+
+    <section class="article-list-section">
+        <h2>All Articles ({{ publisher.article_count }})</h2>
+        
+        <div class="article-feed">
+            
+            {% for article in published_articles %}
+                {% endfor %}
+
+            <article class="article-card">
+                <div class="article-image-placeholder">Image Placeholder</div>
+                <div class="article-content">
+                    <h3 class="article-title">
+                        <a href="#">South Africa's Rand Stabilizes Amid Global Uncertainty</a>
+                    </h3>
+                    <p class="article-summary">Financial analysts report a surprising upturn in the national currency, attributing the resilience to strong export figures in mining and agriculture...</p>
+                    <div class="article-meta">
+                        Author: <span class="publisher-tag">MrAllRound</span> | 
+                        <span class="date">05 Nov 2025</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="article-image-placeholder">Image Placeholder</div>
+                <div class="article-content">
+                    <h3 class="article-title">
+                        <a href="#">Local Elections: Focus Shifts to Community Infrastructure</a>
+                    </h3>
+                    <p class="article-summary">Candidates across major municipalities are now prioritizing road maintenance and water security in their final week of campaigning...</p>
+                    <div class="article-meta">
+                        Author: <span class="publisher-tag">Headlines</span> | 
+                        <span class="date">04 Nov 2025</span>
+                    </div>
+                </div>
+            </article>
+            
+        </div>
+        
+        <div class="pagination-controls text-center" style="margin-top: 30px;">
+            <a href="#" class="btn btn-secondary">Previous Page</a>
+            <span style="margin: 0 15px;">Page 1 of 10</span>
+            <a href="#" class="btn">Next Page</a>
+        </div>
+    </section>
+
+</div>
+
+{% endblock content %}

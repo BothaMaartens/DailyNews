@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Log In - Daily News{% endblock %}
+
+{% block user_auth_nav %}{% endblock user_auth_nav %}
+
+{% block content %}
+
+<div class="auth-container">
+    <h2>Log In</h2>
+
+    <form method="POST" action="{% url 'login' %}"> 
+        {% csrf_token %} 
+        
+        {% if request.GET.next %}
+            <input type="hidden" name="next" value="{{ request.GET.next }}">
+        {% endif %}
+        
+        <div class="form-group">
+            <label for="id_username">User Name:</label>
+            <input type="text" id="id_username" name="username" required 
+                   placeholder="Enter your user name">
+        </div>
+
+        <div class="form-group">
+            <label for="id_password">Password:</label>
+            <input type="password" id="id_password" name="password" required 
+                   placeholder="Enter your password">
+        </div>
+        
+        <button type="submit" class="btn btn-full-width">Log In</button>
+    </form>
+    
+    <!-- <p class="text-center" style="margin-top: 15px;">
+        <a href="{% url 'password_reset' %}" class="link-forgot">Forgot Password?</a>
+    </p> -->
+
+    <p class="text-center" style="margin-top: 25px;">
+        <a href="{% url 'register_role_select' %}" class="btn btn-secondary btn-full-width">Register</a>
+    </p>
+    
+</div>
+
+{% endblock content %}

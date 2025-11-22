@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Daily News{% endblock %}</title>
+    
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-content">
+            
+            {% if user.is_authenticated %}
+                {% if user.role == 'EDITOR' %}
+                    <a href="{% url 'editor_home' %}" class="logo-link">
+                {% elif user.role == 'JOURNALIST' %}
+                    <a href="{% url 'journalist_home' %}" class="logo-link">
+                {% else %}
+                    <a href="{% url 'reader_home' %}" class="logo-link">
+                {% endif %}
+            {% else %}
+                <a href="{% url 'reader_home' %}" class="logo-link">
+            {% endif %}
+                
+                <img src="{% static 'img/Daily_News.jpg' %}" alt="Daily News Logo" class="app-full-logo">
+            </a>
+            
+            {% block user_auth_nav %}
+            <nav class="user-nav">
+                {% if user.is_authenticated %}
+                <div class="user-info">
+                    {# NOTE: Replaced static 'User_name' with dynamic user.username #}
+                    <img src="{% static 'img/placeholder_profile.png' %}" alt="Profile" class="profile-pic">
+                    <span class="username">{{ user.username }}</span> <a href="{% url 'logout' %}" class="btn btn-logout">Logout</a>
+                </div>
+                {% else %}
+                <a href="{% url 'login' %}" class="btn">Log In</a>
+                <a href="{% url 'register_role_select' %}" class="btn btn-secondary">Register</a>
+                {% endif %}
+            </nav>
+            {% endblock user_auth_nav %}
+        </div>
+    </header>
+
+    <main class="content-body">
+        <div class="container">
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; {% now "Y" %} Daily News Application. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

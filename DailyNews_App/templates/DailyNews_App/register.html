@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Register - Select Role{% endblock %}
+
+{% block user_auth_nav %}{% endblock user_auth_nav %}
+
+{% block content %}
+
+<div class="auth-container">
+    <h2>User Registration</h2>
+
+    <p style="margin-bottom: 25px; font-weight: bold;">Select your role:</p>
+    
+    <div class="form-group role-selection-group">
+
+        <a href="{% url 'register_reader' %}" class="btn btn-full-width btn-lg btn-select-role btn-secondary">
+            Reader 
+            <span class="role-description">Access public articles and manage subscriptions.</span>
+        </a>
+        <hr style="border-top: 1px solid var(--color-border); margin: 10px 0;">
+
+        <a href="{% url 'register_journalist' %}" class="btn btn-full-width btn-lg btn-select-role btn-secondary">
+            Journalist 
+            <span class="role-description">Write and submit articles for review.</span>
+        </a>
+        <hr style="border-top: 1px solid var(--color-border); margin: 10px 0;">
+        
+        <a href="{% url 'register_editor' %}" class="btn btn-full-width btn-lg btn-select-role btn-secondary">
+            Editor 
+            <span class="role-description">Review and publish articles (requires Publisher affiliation).</span>
+        </a>
+        
+    </div>
+    
+    {# --- Form submission and radio buttons are now removed --- #}
+
+    <p class="text-center" style="margin-top: 15px;">
+        <a href="{% url 'reader_home' %}" class="btn btn-secondary btn-full-width" style="margin-top: 0;">
+            Cancel
+        </a>
+    </p>
+    
+</div>
+
+{% endblock content %}

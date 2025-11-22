@@ -1,0 +1,1333 @@
+/* DailyNews_App - Base Styles */
+
+/* --- Variables & Setup --- */
+:root {
+    --color-primary: #004A99; /* Royal Blue */
+    --color-secondary: #ff6600; /* Orange/Accent */
+    --color-dark: #333333; /* Dark Grey for text */
+    --color-light: #ffffff; /* White background */
+    --color-border: #cccccc;
+    --color-danger: #cc0000; /* Red for Delete/Logout */
+    --font-heading: 'Oswald', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+/* Global Reset */
+* {
+    box-sizing: border-box;
+    margin: 20px;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-dark);
+    background-color: #f4f4f4;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-dark);
+    margin-bottom: 15px;
+}
+
+h1 { font-size: 2.5em; }
+h2 { font-size: 2.0em; border-bottom: 2px solid var(--color-border); padding-bottom: 5px; }
+h3 { font-size: 1.5em; }
+
+p {
+    margin-bottom: 10px;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #003366;
+}
+
+/* --- Layout Containers --- */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.content-body {
+    flex-grow: 1;
+    padding: 20px 0;
+}
+
+/* --- Header Styles (base.html) --- */
+
+.main-header {
+    background-color: var(--color-light);
+    border-bottom: 3px solid var(--color-primary);
+    padding: 10px 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo Area Styling */
+.logo-link {
+    color: inherit;
+    text-decoration: none;
+    max-width: 300px; 
+}
+
+/* Placeholder for app logo */
+.app-full-logo-placeholder {
+    height: 60px;
+    width: 250px;
+    line-height: 60px;
+    text-align: center;
+    background-color: #e0f0ff; 
+    border: 1px solid #004A99;
+    font-size: 1em;
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    display: block;
+}
+
+/* User Navigation Styling */
+.user-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    background-color: #ddd; /* Placeholder background */
+}
+
+.username {
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+/* --- Buttons & Forms --- */
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: background-color 0.3s, opacity 0.3s;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #003366; 
+    text-decoration: none;
+}
+
+.btn-secondary {
+    background-color: var(--color-light);
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+}
+
+.btn-logout, .btn-delete, .btn-unsubscribe {
+    background-color: var(--color-danger);
+}
+.btn-logout:hover, .btn-delete:hover, .btn-unsubscribe:hover {
+    background-color: #990000;
+}
+
+/* Small Button Style */
+.btn-sm {
+    padding: 5px 10px;
+    font-size: 0.8em;
+    text-transform: none;
+}
+
+/* --- Footer Styles --- */
+.main-footer {
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 30px;
+    border-top: 1px solid var(--color-border);
+    background-color: var(--color-light);
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* --- Utility Classes & Global Tags --- */
+
+.text-center {
+    text-align: center;
+}
+
+.publisher-tag {
+    display: inline-block;
+    background-color: #e0f0ff;
+    color: var(--color-primary);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin: 0 2px;
+}
+
+/* Status Badges - Used in journalist_home, editor_home, article_editor */
+.status-badge {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.75em;
+    font-weight: bold;
+    margin-left: 10px;
+    color: var(--color-light);
+}
+
+.status-published {
+    background-color: green;
+}
+
+.status-draft {
+    background-color: #999;
+}
+
+.status-awaiting {
+    background-color: #ffaa00;
+}
+
+/* --- Tab Navigation --- */
+.tab-nav {
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 2px solid var(--color-border);
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.tab-link {
+    padding: 10px 15px;
+    font-weight: bold;
+    color: #666;
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    transition: color 0.2s, border-bottom-color 0.2s;
+    margin-bottom: -2px; /* Align border cleanly */
+}
+
+.tab-link:hover, .tab-link.active {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.tab-link.active {
+    border-bottom-color: var(--color-primary);
+}
+
+/* --- Reader Home/Feed Styles --- */
+
+.main-feed-layout {
+    display: grid;
+    grid-template-columns: 3fr 1fr; /* 75%/25% split */
+    gap: 30px;
+}
+
+/* --- News Feed (Left Column) --- */
+.news-feed {
+    min-width: 0; /* Prevents overflow with large cards */
+}
+
+.article-feed {
+    margin-top: 20px;
+}
+
+.article-card {
+    display: flex;
+    background-color: var(--color-light);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+}
+
+.article-card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.article-image-placeholder {
+    flex-shrink: 0;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    background-color: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #666;
+    font-size: 0.8em;
+}
+
+.article-content {
+    padding: 15px;
+}
+
+.article-title {
+    font-size: 1.3em;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.article-summary {
+    font-size: 0.95em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.article-meta {
+    font-size: 0.85em;
+    color: #999;
+}
+
+/* --- Sidebar (Right Column) --- */
+.sidebar {
+    padding-top: 45px; /* Align with news-feed h2 baseline */
+}
+
+.sidebar-block {
+    background-color: var(--color-light);
+    border: 1px solid var(--color-border);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.sidebar-block h3 {
+    font-size: 1.2em;
+    color: var(--color-primary);
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.subscription-list li {
+    list-style: none;
+    padding: 8px 0;
+    border-bottom: 1px dashed #eee;
+}
+
+.subscription-list li:last-child {
+    border-bottom: none;
+}
+
+.subscription-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.subscription-link .sub-badge {
+    font-size: 0.8em;
+    color: #999;
+}
+
+
+
+/* --- Article Reader View Styles --- */
+
+
+.full-article-content {
+    background-color: var(--color-light);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.article-detail-title {
+    font-size: 3em;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    color: var(--color-dark);
+}
+
+.article-detail-meta {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* Author Info Bar */
+.article-author-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    padding: 10px 0;
+}
+
+.journalist-profile {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.author-profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    background-color: #ddd;
+    flex-shrink: 0;
+}
+
+.author-details {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.author-name a {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.publisher-name {
+    font-size: 0.9em;
+    color: var(--color-primary);
+}
+
+.subscribe-btn {
+    background-color: var(--color-secondary);
+    border: none;
+}
+
+.subscribe-btn:hover {
+    background-color: #e65c00;
+}
+
+/* Featured Image */
+.article-featured-image {
+    margin: 0 0 30px 0;
+}
+
+.article-featured-image .full-image {
+    width: 100%;
+    height: auto;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.article-image-placeholder {
+    width: 100%;
+    height: 350px;
+    background-color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    color: #999;
+}
+
+
+/* Article Body */
+.article-body {
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+.article-body p {
+    margin-bottom: 1.5em;
+}
+
+/* Related Articles/More from Author */
+.more-from-author h3 {
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+.related-articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.related-article-card {
+    background-color: var(--color-light);
+    padding: 15px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    transition: box-shadow 0.2s;
+}
+
+.related-article-card:hover {
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.related-title {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.related-meta {
+    font-size: 0.85em;
+    color: #999;
+}
+
+
+/* --- Journalist/Editor Home Styles --- */
+
+.journalist-home-view, .editor-home-view {
+    max-width: 900px;
+    margin: auto;
+}
+
+.journalist-header, .editor-header {
+    background-color: var(--color-light);
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.journalist-header h1 {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+}
+
+.publisher-affiliations {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.create-article-btn {
+    background-color: var(--color-secondary);
+    border: none;
+    text-transform: none;
+}
+.create-article-btn:hover {
+    background-color: #e65c00;
+}
+
+/* Editor Specific */
+.editor-welcome-message {
+    font-weight: bold;
+    color: var(--color-dark);
+    margin-bottom: 5px;
+}
+
+.editor-header .publisher-affiliations {
+    margin-bottom: 0;
+}
+
+.editor-review-section h2 {
+    padding-top: 10px; 
+}
+
+
+/* --- Article Management List (Shared) --- */
+.article-management-list {
+    background-color: var(--color-light);
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    padding: 10px 20px;
+}
+
+.article-management-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.article-management-item:last-child {
+    border-bottom: none;
+}
+
+.article-details {
+    flex-grow: 1;
+    margin-right: 20px;
+}
+
+.article-details .article-title {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.article-details .article-meta {
+    font-size: 0.85em;
+    color: #777;
+}
+
+.article-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.article-actions .btn-view {
+    background-color: var(--color-primary); 
+}
+
+/* --- Journalist/Editor Article View Styles --- */
+
+.journalist-article-actions-header, .editor-article-actions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.journalist-article-actions-header .btn, 
+.editor-article-actions-header .btn {
+    text-transform: none; 
+    font-size: 0.9em;
+    padding: 8px 15px;
+}
+
+.submit-review-btn { /* Journalist submit */
+    background-color: var(--color-secondary);
+}
+
+.submit-review-btn:hover {
+    background-color: #e65c00;
+}
+
+.publish-btn { /* Editor publish */
+    background-color: green; 
+}
+
+.publish-btn:hover {
+    background-color: darkgreen;
+}
+
+.article-detail-meta .status-indicator {
+    font-weight: bold;
+    color: var(--color-dark);
+}
+
+/* Ensure journalist body text is clear */
+.article-body.journalist-body {
+    background-color: #fafafa;
+    border: 1px solid #eee;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+/* Editor Review Notes Section */
+.editor-review-notes {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--color-light);
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.editor-review-notes h2 {
+    font-size: 1.5em;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 5px;
+}
+
+.editor-review-notes textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    font-family: var(--font-body);
+    transition: border-color 0.2s;
+}
+
+/* --- Journalist/Publisher Profile Pages --- */
+
+.profile-article-list-view {
+    max-width: 900px;
+    margin: auto;
+}
+
+.profile-header {
+    background-color: var(--color-light);
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.profile-meta {
+    display: flex;
+    gap: 20px;
+}
+
+.large-profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #ddd;
+    flex-shrink: 0;
+    border: 3px solid var(--color-border);
+}
+
+.publisher-logo-lg {
+    border-radius: 4px;
+    border: 1px solid var(--color-border);
+    object-fit: contain;
+}
+
+.profile-details h1 {
+    font-size: 2em;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.profile-role {
+    font-style: italic;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.profile-bio {
+    font-size: 0.95em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.profile-stats {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 20px;
+    font-size: 0.9em;
+}
+
+.stat-item strong {
+    color: var(--color-primary);
+}
+
+.profile-actions {
+    flex-shrink: 0;
+    text-align: right;
+}
+
+.large-action-btn {
+    padding: 12px 25px;
+    font-size: 1em;
+    text-transform: none;
+}
+
+.article-list-section h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+/* --- Article Create/Edit Form Styles --- */
+
+.article-form-view {
+    max-width: 800px;
+    margin: auto;
+    background-color: var(--color-light);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.form-header {
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-header h1 {
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+.form-header .subtitle {
+    font-style: italic;
+    color: #666;
+}
+
+.form-header .back-link {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--color-dark);
+}
+
+.form-group input[type="text"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    font-family: var(--font-body);
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--color-primary);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.help-text {
+    font-size: 0.85em;
+    color: #999;
+    margin-top: 5px;
+}
+
+.current-image-status {
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+/* Form Actions Footer */
+.form-actions-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    margin-top: 30px;
+}
+
+.save-draft-btn {
+    background-color: #999;
+    order: 1;
+    text-transform: none;
+}
+.save-draft-btn:hover {
+    background-color: #777;
+}
+
+.submit-review-btn {
+    background-color: var(--color-secondary);
+    order: 2;
+    text-transform: none;
+    font-weight: bold;
+}
+.submit-review-btn:hover {
+    background-color: #e65c00;
+}
+
+.delete-article-btn {
+    order: 3;
+}
+
+/* --- Responsive Adjustments (Global) --- */
+
+/* Large Tablets and smaller */
+@media (max-width: 992px) {
+    .main-feed-layout {
+        grid-template-columns: 2fr 1fr; /* Adjust feed/sidebar ratio */
+    }
+}
+
+/* Mobile Devices and smaller tablets */
+@media (max-width: 768px) {
+    .main-feed-layout {
+        grid-template-columns: 1fr; /* Stack feed and sidebar */
+    }
+    
+    .sidebar {
+        padding-top: 0;
+    }
+    
+    /* Article Card (Feed) */
+    .article-card {
+        flex-direction: column;
+    }
+    
+    .article-image-placeholder {
+        width: 100%;
+        height: 200px;
+    }
+
+    /* Full Article View */
+    .article-detail-title {
+        font-size: 2em;
+    }
+    
+    .article-author-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .article-author-info .subscribe-btn, .btn-unsubscribe {
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    /* Management Pages (Journalist/Editor Home) */
+    .article-management-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .article-details {
+        margin-right: 0;
+        width: 100%;
+    }
+    
+    .article-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .article-actions a, .article-actions button {
+        flex-grow: 1;
+        text-align: center;
+    }
+    
+    /* Journalist/Editor Article View */
+    .journalist-article-actions-header, 
+    .editor-article-actions-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+    
+    .action-buttons {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .action-buttons a, .action-buttons button {
+        flex-grow: 1;
+        text-align: center;
+    }
+    
+    /* Profile Pages */
+    .profile-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-meta {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-details {
+        text-align: center;
+    }
+
+    .profile-stats {
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .profile-actions {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .large-action-btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    /* Article Form */
+    .form-actions-footer {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+    
+    .form-actions-footer button {
+        width: 100%;
+        order: initial;
+    }
+    
+    .form-header .back-link {
+        position: static;
+        margin-top: 15px;
+        display: block;
+        width: 100%;
+    }
+}
+
+/* --- Profile Page (profile.html) --- */
+.profile-settings-view {
+    max-width: 700px;
+    margin: auto;
+    background-color: var(--color-light);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.profile-header-settings {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 30px;
+}
+
+.profile-pic-container {
+    flex-shrink: 0;
+}
+
+.large-profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #ddd;
+    border: 3px solid var(--color-primary);
+}
+
+.profile-details-summary h1 {
+    font-size: 2em;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.user-role-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.user-role-reader {
+    background-color: #e0f0ff;
+    color: var(--color-primary);
+}
+.user-role-journalist {
+    background-color: #fff3e0;
+    color: var(--color-secondary);
+}
+.user-role-editor {
+    background-color: #e6ffe6;
+    color: green;
+}
+
+.publisher-affiliation, .reader-stats {
+    font-size: 0.95em;
+    color: #555;
+    margin-top: 5px;
+}
+
+/* Settings Form */
+.settings-form-section h2 {
+    font-size: 1.5em;
+    border-bottom: none;
+    margin-bottom: 20px;
+    padding-bottom: 0;
+}
+
+.account-update-form .form-group {
+    margin-bottom: 15px;
+}
+
+.account-update-form input[type="text"],
+.account-update-form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.form-actions-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    margin-top: 30px;
+}
+
+/* Responsive adjustment */
+@media (max-width: 600px) {
+    .profile-header-settings {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-details-summary {
+        text-align: center;
+    }
+    
+    .form-actions-footer {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* --- JOURNALIST DASHBOARD STYLES (journalist_home.html) --- */
+
+.dashboard-container {
+    padding: 20px;
+}
+.journalist-articles-section {
+    margin-top: 30px;
+}
+.article-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.article-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    margin-bottom: 8px; /* Reduced dead space */
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    transition: background-color 0.2s ease;
+}
+.article-item:hover {
+    background-color: rgba(0, 0, 0, 0.03); /* Subtle hover effect */
+}
+
+/* STATUS-BASED BACKGROUND STYLING */
+/* Awaiting Review: Light Transparent Blue */
+.status-awaiting_review {
+    background-color: rgba(0, 123, 255, 0.1);
+    border-color: rgba(0, 123, 255, 0.3);
+}
+/* Draft: Light Transparent Red */
+.status-draft {
+    background-color: rgba(220, 53, 69, 0.1);
+    border-color: rgba(220, 53, 69, 0.3);
+}
+.status-revision {
+    background-color: rgba(255, 193, 7, 0.1);
+    border-color: rgba(255, 193, 7, 0.3);
+}
+
+
+/* ARTICLE DETAILS: CLOSER TEXT LINES */
+.article-details {
+    flex-grow: 1;
+    margin-right: 20px;
+}
+.article-details .article-title {
+    font-size: 1.1em;
+    margin-top: 0;
+    margin-bottom: 5px; 
+}
+.article-details .article-meta {
+    font-size: 0.85em;
+    color: #555;
+    margin-top: 0;
+    margin-bottom: 0; 
+}
+
+/* STATUS BADGE: BIGGER STATUS */
+.status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    font-size: 0.9em; 
+    font-weight: bold;
+    border-radius: 4px;
+    color: white; 
+}
+.status-awaiting_review .status-badge {
+    background-color: #007bff; /* Blue */
+}
+.status-draft .status-badge {
+    background-color: #dc3545; /* Red */
+}
+.status-published .status-badge {
+    background-color: #28a745; /* Green */
+}
+.status-rejected .status-badge {
+    background-color: #6c757d; /* Gray */
+}
+.status-revision .status-badge {
+    background-color: #ffc107; /* Yellow/Orange */
+}
+
+/* --- REGISTRATION AND AUTH STYLES --- */
+
+.auth-container {
+    max-width: 500px; /* Limits the width for better readability */
+    margin: 40px auto; /* Centers the container horizontally */
+    padding: 30px;
+    background-color: var(--color-light); /* White background */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    text-align: center;
+}
+
+.auth-header {
+    font-size: 2em;
+    color: var(--color-primary);
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 10px;
+}
+
+.auth-form {
+    text-align: left; /* Aligns labels/inputs to the left within the form */
+}
+
+.auth-form .form-group {
+    margin-bottom: 15px; /* Standard spacing between fields */
+}
+
+.auth-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--color-dark);
+}
+
+/* Style for all input fields (including file input) */
+.auth-form input[type="text"],
+.auth-form input[type="email"],
+.auth-form input[type="password"],
+.auth-form input[type="file"],
+.auth-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+    font-size: 1em; /* Ensures readable text size */
+}
+
+.auth-form .form-section-title {
+    font-size: 1.2em;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: var(--color-secondary);
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.auth-form .join-publisher-instruction {
+    font-size: 0.85em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* File Upload Specific Styling (Optional, but helps with presentation) */
+.auth-form input[type="file"] {
+    border: none;
+    padding: 0;
+}
+
+.auth-footer-link {
+    margin-top: 20px;
+}
+
+/* --- BUTTON STYLING (Ensure these match your global definitions) --- */
+.btn-full-width {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    border: 1px solid var(--color-primary);
+}
+.btn-primary:hover {
+    background-color: #003a7a; /* Slightly darker blue */
+}
+
+/* --- REGISTRATION ERROR STYLES (For Password Validators) --- */
+
+/* Targets the default <ul> element containing the validation rules */
+.auth-form ul.errorlist {
+    font-size: 0.85em; /* Reduces the overall size of the list */
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding-left: 20px; /* Gives space for list bullet points */
+    color: var(--color-danger, #cc0000); /* Ensures the text is red (or your danger color) */
+}
+
+/* Targets the individual list items (the rules themselves) */
+.auth-form ul.errorlist li {
+    list-style: disc; /* Ensures a bullet point is present */
+    line-height: 1.4; /* Improves vertical spacing */
+    margin-bottom: 3px;
+    padding: 0;
+}
+
+/* Target the small tag if you are manually wrapping errors, just in case */
+.auth-form .form-group small.text-danger {
+    font-size: 0.85em; 
+    display: block; /* Ensures the small tag takes up a new line */
+}

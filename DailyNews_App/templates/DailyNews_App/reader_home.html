@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}News Feed - Daily News{% endblock %}
+
+{% block content %}
+
+<div class="reader-grid">
+    
+    <section class="news-feed-section">
+        <h2>News Feed</h2>
+
+        <div class="mb-4">
+            <a href="{% url 'article_list' %}" class="btn btn-lg btn-success shadow">
+                📰 View Universal News Feed (All Published Articles)
+            </a>
+        </div>
+        
+    </section>
+
+    
+    <aside class="subscriptions-aside">
+        <h2>Subscriptions</h2>
+
+        <h3 class="aside-heading">Publishers</h3>
+        <div class="publisher-list">
+            {% for publisher in publisher_subs %}
+            {% if publisher.pk %}
+            <div class="publisher-item">
+                <a href="{% url 'publisher_profile' publisher.pk %}">
+                    {# NOTE: The hardcoded images/names are replaced by dynamic data #}
+                    {# If publisher has a logo field, you would use: <img src="{{ publisher.logo.url }}" ...> #}
+                    <span>{{ publisher.name }}</span>
+                    {% if publisher.article_count %}
+                        <span class="article-count-badge">{{ publisher.article_count }} articles</span>
+                    {% endif %}
+                </a>
+            </div>
+            {% endif %}
+            {% empty %}
+            <p>You are not subscribed to any publishers yet.</p>
+            {% endfor %}
+        </div>
+
+        <h3 class="aside-heading">Journalists</h3>
+        <ul class="journalist-list">
+            {% for journalist in journalist_subs %}
+            {% if journalist.pk %}
+            <li>
+                <div class="journalist-profile">
+                    {# NOTE: changed variable name from subscribed_journalists to journalist_subs to match views.py context #}
+                    <img src="{{ journalist.profile_pic.url }}" alt="Profile" class="journalist-profile-pic">
+                    <a href="{% url 'journalist_profile' journalist.pk %}">{{ journalist.username }}</a>
+                </div>
+                
+            </li>
+            {% endif %}
+            {% empty %}
+            <li><p>You are not subscribed to any journalists yet.</p></li>
+            {% endfor %}
+            
+        </ul>
+
+    </aside>
+
+</div>
+
+{% endblock content %}

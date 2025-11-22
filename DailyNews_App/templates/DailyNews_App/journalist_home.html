@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Journalist Dashboard - Daily News{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-container">
+    <header class="journalist-header">
+        <h1>Journalist Dashboard</h1> 
+        <p class="journalist-welcome-message">
+            Welcome, {{ user.username }}!
+        </p>
+
+        <div class="mb-4">
+            <a href="{% url 'article_list' %}" class="btn btn-lg btn-success shadow">
+                📰 View Universal News Feed (All Published Articles)
+            </a>
+        </div>
+        
+        <div class="action-bar">
+            <a href="{% url 'article_create' %}" class="btn btn-full-width btn-success">
+                + Create New Article
+            </a>
+        </div>
+    </header>
+
+    <section class="journalist-articles-section">
+        <h2>My Articles</h2>
+        
+        {% if messages %}
+            <ul class="messages" style="margin-bottom: 20px;">
+                {% for message in messages %}<li class="{{ message.tags }}">{{ message }}</li>{% endfor %}
+            </ul>
+        {% endif %}
+
+        {% if journalist_articles %}
+            <p class="summary-text">You have submitted {{ journalist_articles.count }} article(s).</p>
+            
+            <ul class="article-list">
+                {% for article in journalist_articles %}
+                <li class="article-item status-{{ article.status|lower }}">
+                    <div class="article-details">
+                        <h3 class="article-title">
+                            {% if article.status == 'DRAFT' or article.status == 'REVISION' %}
+                                <a href="{% url 'article_edit' pk=article.pk %}">{{ article.title }}</a>
+                            {% else %}
+                                <a href="{% url 'article_journalist_view' pk=article.pk %}">{{ article.title }}</a>
+                            {% endif %}
+                        </h3>
+                        <p class="article-meta">
+                            Status: <span class="status-badge status-{{ article.status|lower }}">{{ article.get_status_display }}</span>
+                            | Last Update: {{ article.last_edited_date|date:"F d, Y, P" }}
+                        </p>
+                    </div>
+                    
+                    <div class="article-actions">
+                        {% if article.status == 'DRAFT' or article.status == 'REVISION' %}
+                            <a href="{% url 'article_edit' pk=article.pk %}" class="btn btn-sm btn-warning">Edit/Submit</a>
+                        {% elif article.status == 'AWAITING_REVIEW' %}
+                            <span class="btn btn-sm btn-info disabled">In Review</span>
+                        {% elif article.status == 'PUBLISHED' %}
+                            <a href="{% url 'article_journalist_view' pk=article.pk %}" class="btn btn-sm btn-success">View Live</a>
+                        {% elif article.status == 'REJECTED' %}
+                            <a href="{% url 'article_journalist_view' pk=article.pk %}" class="btn btn-sm btn-danger">View Notes</a>
+                        {% endif %}
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+
+        {% else %}
+            <div class="no-articles">
+                <p>You haven't created any articles yet. Get started now!</p>
+            </div>
+        {% endif %}
+    </section>
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Editor Dashboard - Daily News{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-container">
+    {% if publisher %}
+        <h2>Review Queue for {{ publisher.name }}</h2>
+    {% else %}
+        <h2>Welcome, Editor!</h2>
+    {% endif %}
+
+    <div class="mb-4">
+        <a href="{% url 'article_list' %}" class="btn btn-lg btn-success shadow">
+            📰 View Universal News Feed (All Published Articles)
+        </a>
+    </div>
+
+    {% if articles_to_review %}
+        <p class="summary-text">You have <strong>{{ articles_to_review.count }}</strong> article(s) awaiting review:</p>
+
+        <ul class="article-list">
+            {% for article in articles_to_review %}
+            <li class="article-item status-awaiting-review">
+                <div class="article-details">
+                    <a href="{% url 'article_editor_review' pk=article.pk %}" class="article-title">{{ article.title }}</a>
+                    <p class="article-meta">
+                        By {{ article.author.username }} 
+                        | Submitted: {{ article.creation_date|date:"F d, Y, P" }}
+                    </p>
+                </div>
+                <div class="article-actions">
+                    <span class="status-badge status-awaiting-review">Awaiting Review</span>
+                    <a href="{% url 'article_editor_review' pk=article.pk %}" class="btn btn-sm btn-primary">Review Now</a>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+
+    {% else %}
+        <div class="no-articles">
+            <p>The review queue for {{ publisher.name|default:"your publisher" }} is currently empty. </p>
+            <p>All articles submitted by your journalists have been reviewed.</p>
+        </div>
+    {% endif %}
+
+</div>
+
+{% endblock content %}

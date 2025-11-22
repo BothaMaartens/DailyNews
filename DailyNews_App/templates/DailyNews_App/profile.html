@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}My Profile - {{ user.username }}{% endblock %}
+
+{% block content %}
+
+<div class="profile-settings-view">
+    
+    <header class="profile-header-settings">
+        <div class="profile-pic-container">
+            <img src="{% if user.profile_photo %}{{ user.profile_photo.url }}{% else %}{% static 'img/profile_pic.png' %}{% endif %}" 
+                 alt="{{ user.username }}'s profile picture" class="large-profile-pic">
+        </div>
+        
+        <div class="profile-details-summary">
+            <h1>{{ user.first_name|default:user.username }}</h1>
+            <p class="user-role-badge user-role-{{ user.role|lower }}">Role: <strong>{{ user.role }}</strong></p>
+            <p class="user-email">Email: {{ user.email }}</p>
+
+            {% if user.publisher %}
+                <p class="publisher-affiliation">
+                    {% if user.role == 'EDITOR' %}
+                        Managing Publisher: <span class="publisher-tag">{{ user.publisher.name }}</span>
+                    {% elif user.role == 'JOURNALIST' %}
+                        Affiliated with: <span class="publisher-tag">{{ user.publisher.name }}</span>
+                    {% endif %}
+                </p>
+            {% endif %}
+            
+            {% if user.role == 'READER' %}
+            <p class="reader-stats">
+                Subscribed to: 
+                <strong>{{ user.reader_publisher_subs.count }} Publishers</strong> | 
+                <strong>{{ user.reader_journalist_subs.count }} Journalists</strong>
+            </p>
+            {% endif %}
+        </div>
+    </header>
+    
+    <section class="settings-form-section">
+        <h2>Update Account Details</h2>
+        
+        <form method="POST" enctype="multipart/form-data" class="account-update-form">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="id_first_name">First Name</label>
+                <input type="text" id="id_first_name" name="first_name" value="{{ user.first_name|default:'' }}" placeholder="First Name">
+            </div>
+            
+            <div class="form-group">
+                <label for="id_last_name">Last Name</label>
+                <input type="text" id="id_last_name" name="last_name" value="{{ user.last_name|default:'' }}" placeholder="Last Name">
+            </div>
+            
+            <div class="form-group file-upload-group">
+                <label for="id_profile_photo">Change Profile Photo</label>
+                <input type="file" id="id_profile_photo" name="profile_photo">
+                <p class="help-text">Upload a new image to replace the current one.</p>
+            </div>
+            
+            <div class="form-group">
+                <button type="button" class="btn btn-secondary password-change-btn">Change Password</button>
+            </div>
+            
+            <div class="form-actions-footer">
+                <button type="submit" class="btn btn-primary large-action-btn">Save Changes</button>
+                <button type="button" class="btn btn-delete large-action-btn">Delete Account</button>
+            </div>
+        </form>
+        
+    </section>
+
+</div>
+
+{% endblock content %}

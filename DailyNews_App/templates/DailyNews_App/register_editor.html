@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Editor Registration - Daily News{% endblock %}
+
+{% block user_auth_nav %}{% endblock user_auth_nav %} 
+
+{% block content %}
+
+<div class="auth-container">
+    <h2 class="auth-header">Editor Registration</h2>
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>{% endfor %}
+        </ul>
+    {% endif %}
+
+    <form method="POST" action="{% url 'register_editor' %}" enctype="multipart/form-data" class="auth-form">
+        {% csrf_token %}
+        
+        {% if form.non_field_errors %}
+            <div class="alert alert-danger auth-alert">
+                {% for error in form.non_field_errors %}<p>{{ error }}</p>{% endfor %}
+            </div>
+        {% endif %}
+        
+        <h3 class="form-section-title">Secure your Profile:</h3>
+        
+        {% for field in form %}
+            {% if field.name not in 'actualtoday_password,sporttoday_password' %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}:</label>
+                {{ field }}
+                {% if field.help_text %}<p class="form-text text-muted">{{ field.help_text }}</p>{% endif %}
+                {{ field.errors }} 
+            </div>
+            {% endif %}
+        {% endfor %}
+
+        <h3 class="form-section-title join-publisher-title">Join Publisher(s):</h3>
+        <p class="join-publisher-instruction">
+            Enter the access password(s) for the publisher(s) you are authorized to join.
+            Leave blank if not joining.
+        </p>
+
+        <div class="form-group">
+            <label for="id_actualtoday_password">{{ form.actualtoday_password.label }}:</label>
+            {{ form.actualtoday_password }}
+            {{ form.actualtoday_password.errors }} 
+        </div>
+        
+        <div class="form-group">
+            <label for="id_sporttoday_password">{{ form.sporttoday_password.label }}:</label>
+            {{ form.sporttoday_password }}
+            {{ form.sporttoday_password.errors }} 
+        </div>
+        
+        <button type="submit" class="btn btn-full-width btn-primary">Register as Editor</button>
+    </form>
+    
+    <p class="text-center auth-footer-link">
+        <a href="{% url 'register_role_select' %}" class="btn btn-secondary">Back to Role Selection</a>
+    </p>
+
+</div>
+
+{% endblock content %}

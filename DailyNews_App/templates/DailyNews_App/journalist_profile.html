@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Articles by {{ journalist.user_name }} - Daily News{% endblock %}
+
+{% block content %}
+
+<div class="profile-article-list-view">
+
+    <header class="profile-header">
+        <div class="profile-meta">
+            <img src="{% static 'img/profile_pic.png' %}" alt="{{ journalist.user_name }}'s profile picture" class="large-profile-pic">
+            
+            <div class="profile-details">
+                <h1>{{ journalist.user_name }}</h1> 
+                <p class="profile-role">Journalist</p>
+                <p class="profile-bio">{{ journalist.bio|default:"No bio available." }}</p>
+                
+                <div class="profile-stats">
+                    <span class="stat-item">Articles: <strong>{{ journalist.article_count }}</strong></span>
+                    <span class="stat-item">Subscribers: <strong>{{ journalist.subscriber_count }}</strong></span>
+                </div>
+
+                <p class="publisher-affiliations">
+                    Affiliated with: 
+                    {% for publisher in journalist.publishers.all %}
+                        <span class="publisher-tag">{{ publisher.name }}</span>
+                    {% empty %}
+                        <span style="color: var(--color-danger);">Independent</span>
+                    {% endfor %}
+                    <span class="publisher-tag">ActualToday</span>, <span class="publisher-tag">SportToday</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="profile-actions">
+            {% if not is_subscribed %}
+            <button class="btn btn-primary subscribe-btn large-action-btn" data-journalist-id="{{ journalist.pk }}">
+                + Subscribe to this Journalist
+            </button>
+            {% else %}
+            <button class="btn btn-unsubscribe large-action-btn" data-journalist-id="{{ journalist.pk }}">
+                Unsubscribe
+            </button>
+            {% endif %}
+        </div>
+    </header>
+
+    <section class="article-list-section">
+        <h2>Published Articles ({{ journalist.article_count }})</h2>
+        
+        <div class="article-feed">
+            
+            {% for article in published_articles %}
+                {% endfor %}
+
+            <article class="article-card">
+                <div class="article-image-placeholder">Image Placeholder</div>
+                <div class="article-content">
+                    <h3 class="article-title">
+                        <a href="#">Record Climate Accord Reached in Global Summit</a>
+                    </h3>
+                    <p class="article-summary">Financial analysts report a surprising upturn in the national currency, attributing the resilience to strong export figures in mining and agriculture...</p>
+                    <div class="article-meta">
+                        <span class="publisher-tag">ActualToday</span> | 
+                        <span class="date">06 Nov 2025</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="article-image-placeholder">Image Placeholder</div>
+                <div class="article-content">
+                    <h3 class="article-title">
+                        <a href="#">Opinion: The Future of Remote Work is Local</a>
+                    </h3>
+                    <p class="article-summary">A deep dive into how major companies are restructuring their teams to focus on local talent pools to reduce global overhead and improve productivity...</p>
+                    <div class="article-meta">
+                        <span class="publisher-tag">ActualToday</span> | 
+                        <span class="date">01 Nov 2025</span>
+                    </div>
+                </div>
+            </article>
+            
+        </div>
+        
+        <div class="pagination-controls text-center" style="margin-top: 30px;">
+            <a href="#" class="btn btn-secondary">Previous Page</a>
+            <span style="margin: 0 15px;">Page 1 of 5</span>
+            <a href="#" class="btn">Next Page</a>
+        </div>
+    </section>
+
+</div>
+
+{% endblock content %}

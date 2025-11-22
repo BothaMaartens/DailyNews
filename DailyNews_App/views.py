@@ -774,7 +774,18 @@ def editor_home(request):
 @login_required
 @user_passes_test(is_editor, login_url='/login/')
 def article_editor(request, pk):
-    """Editor review page allowing content editing, publish, or delete."""
+    """
+    Handles the review process for Editors.
+
+    Allows the editor to:
+        1. Edit the content of a submitted article.
+        2. Publish the article (approving it).
+        3. Delete the article.
+
+    :param request: The HTTP request object.
+    :param pk: Primary Key of the article to review.
+    :return: Rendered 'article_editor.html' or redirect to dashboard.
+    """
     article = get_object_or_404(Article, pk=pk)
 
     # 1. Access Control Check
@@ -851,7 +862,13 @@ def article_editor(request, pk):
 @login_required
 @user_passes_test(is_reader, login_url='/login/')
 def subscribe_journalist(request, pk):
-    """Toggles subscription status for a journalist."""
+    """
+    Toggles a Reader's subscription to a Journalist.
+
+    :param request: The HTTP request object.
+    :param pk: The ID of the Journalist.
+    :return: Redirect to the previous page.
+    """
     journalist = get_object_or_404(CustomUser, pk=pk, role='JOURNALIST')
 
     # Check if already subscribed
@@ -875,7 +892,13 @@ def subscribe_journalist(request, pk):
 @login_required
 @user_passes_test(is_reader, login_url='/login/')
 def subscribe_publisher(request, pk):
-    """Toggles subscription status for a publisher."""
+    """
+    Toggles a Reader's subscription to a Publisher.
+
+    :param request: The HTTP request object.
+    :param pk: The ID of the Publisher.
+    :return: Redirect to the previous page.
+    """
     publisher = get_object_or_404(Publisher, pk=pk)
 
     # Check if already subscribed
@@ -908,7 +931,14 @@ def manage_subscriptions_view(request):
 # 6. PROFILE VIEW (Account Management)
 @login_required
 def profile_view(request):
-    """Allows user to update their personal details."""
+    """
+    Allows a logged-in user to update their profile details (Name, Email, Photo).
+
+    Uses an inline ``ProfileUpdateForm`` model form.
+
+    :param request: The HTTP request object.
+    :return: Rendered 'profile.html'.
+    """
     user = request.user
 
     # NOTE: We use a simplified ModelForm here for profile updates.

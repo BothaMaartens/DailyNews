@@ -168,8 +168,7 @@ def handle_article_publication_and_sharing(sender, instance, created,
             message = (
                 f"Dear Subscriber,\n\n"
                 f"A new article, '{instance.title}', has been published by "
-                f"{instance.author.get_full_name() or
-                   instance.author.username} "
+                f"{instance.author.get_full_name() or instance.author.username} "
                 f"at {instance.publisher.name}.\n\n"
                 f"Read it here: {article_url}\n\n"
                 f"Thank you for subscribing!"

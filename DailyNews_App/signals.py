@@ -163,10 +163,7 @@ def handle_article_publication_and_sharing(sender, instance, created,
         if recipient_list:
             article_url = f"{settings.BASE_URL}{reverse('article_reader', args=[instance.pk])}"
 
-            subject = (f"NEW ARTICLE: {instance.title} by "
-                       f"{instance.author.get_full_name() or
-                          instance.author.username}"
-                        )
+            subject = (f"NEW ARTICLE: {instance.title} by {instance.author.get_full_name() or instance.author.username}")
 
             message = (
                 f"Dear Subscriber,\n\n"

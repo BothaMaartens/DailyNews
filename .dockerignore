@@ -1,0 +1,27 @@
+# Exclude Python-related environments and caches
+.venv
+.venv_docs
+__pycache__/
+*.pyc
+
+# Exclude Git files
+.git
+.gitignore
+
+# Exclude IDE and operating system files
+.vscode/
+.idea/
+Thumbs.db
+
+# Exclude user-uploaded content (often large)
+# If your Django project has a media or static root used for development:
+media/
+static_root/
+
+# EXTREMELY IMPORTANT: Exclude the SQLite database
+# These files can grow very large and change frequently
+*.sqlite3
+db.sqlite3
+
+# Exclude Sphinx build artifacts
+docs/_build/

@@ -16,7 +16,7 @@ Before starting, ensure you have the following installed on your system:
 
 4. Use the requirements.txt to validate the requirements.
 
-## 1. Project Setup
+## 1. Project Setup - Locally, using a virtual environment. 
 
 Follow these steps to prepare your environment:
 
@@ -34,12 +34,12 @@ Activate the virtual environment based on your operating system:
 
 **Windows (PowerShell):**
 
--- .\venv\Scripts\Activate
+-- `.\venv\Scripts\Activate`
 
 
 **macOS/Linux (Bash):**
 
--- source venv/bin/activate
+-- `source venv/bin/activate`
 
 
 You should see the virtual environment name in your terminal prompt (e.g., `(venv)`).
@@ -48,7 +48,7 @@ You should see the virtual environment name in your terminal prompt (e.g., `(ven
 
 Install all necessary Python packages using the provided `requirements.txt` file.
 
--- pip install -r requirements.txt
+-- `pip install -r requirements.txt`
 
 
 ## 2. Database Configuration (MariaDB)
@@ -75,13 +75,14 @@ EXIT;
 
 ### 2.3 Apply Schema Migrations
 
-With the database created, run Django's migrations to build all the necessary tables.
-
--- python manage.py migrate
-
 Activate MySQL/MariaDB in your Django env. 
 
--- pip install mysqlclient
+-- `pip install mysqlclient`
+
+With the database created, run Django's migrations to build all the necessary tables.
+
+-- `python manage.py migrate`
+
 
 ## 3. Data Loading (Initial Users and Content)
 
@@ -95,30 +96,53 @@ The existing application data (users, articles) has already been migrated. But t
 
 Use the `loaddata` command to populate the database with test data:
 
--- python manage.py loaddata initial_data_dump.json
+-- `python manage.py loaddata initial_data_dump.json`
 
 
 ## 4. Final Project Setup
 
 Once the initial data is laoded, make the required migrations:
 
--- python manage.py makemigrations DailyNews_App
+-- `python manage.py makemigrations DailyNews_App`
 
 Migrate the database to ensure all data is loaded to the created mysql database; dailynews_db:
 
--- python manage.py migrate
+-- `python manage.py migrate`
 
 For testing the Django Super User can be created to act as and access the Django Admin interface. Run the following command in your virtual environment shell: 
 
--- python manage.py createsuperuser
+-- `python manage.py createsuperuser`
 
 Follow the Shell prompts to complete setup. -You will be requested to add a password that will not show, but it is stored. 
 
-## 4. Running the Application
+## 5. Project Setup - Using Docker.
+
+Access the link below to the public remote repository:
+
+`http://hub.docker.com/repository/docker/bothamaartens/dailynews/general`
+
+On the docker hub repository page, the following pull request can be found: 
+
+`docker pull bothamaartens/dailynews:latest`
+
+Depending on preference of use, this pull request can either be run in "Play With Docker" web of in the Docker Desktop built in terminal. 
+
+After pulling the docker image, it can be run with the following command: 
+
+`docker run -d -p 80:80 bothamaartens/dailynews:latest`
+
+To view the web page after running the Docker image, you can
+
+1. Open http://localhost ~ Open in your browser if using Docker Desktop.
+2. Click on the ``80`` symbol when using PWD.
+
+With the Docker image running the app can be operated as stated below. 
+
+## 6. Running the Application
 
 Once all steps above are complete, you can start the development server.
 
-python manage.py runserver
+-- `python manage.py runserver`
 
 
 The application will be available at:
@@ -141,4 +165,4 @@ ActualToday     | `ActualToday`
 
 SportToday      |`SportToday`
 
-## Happy Testing/Evaluating!!
+**Very Important. Only editors affiliated with the Publisher can publish articles that a Journalist have written for said publication.
